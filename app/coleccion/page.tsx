@@ -5,15 +5,15 @@ import { asset } from "@/lib/blog";
 import ProductFilterGrid from "./ProductFilterGrid";
 
 export const metadata = {
-  title: "Coleccion | Hijos del Oceano",
+  title: "Colección | Hijos del Océano",
   description:
-    "Coleccion editorial de productos Hijos del Oceano: prendas, accesorios y piezas visuales conectadas con el mar.",
+    "Colección editorial de productos Hijos del Océano: prendas, accesorios y piezas visuales conectadas con el mar.",
 };
 
 export default function CollectionPage() {
   return (
     <main className="collectionPage">
-      <nav className="blogNav journalNav collectionNav" aria-label="Coleccion">
+      <nav className="blogNav journalNav collectionNav" aria-label="Colección">
         <a className="brand" href={asset("/")}>
           <Image
             src={asset("/brand/logo-oficial.png")}
@@ -33,10 +33,10 @@ export default function CollectionPage() {
         </div>
       </nav>
 
-      <section className="collectionHero" aria-label="Coleccion Hijos del Oceano">
+      <section className="collectionHero" aria-label="Colección Hijos del Océano">
         <Image
           src={asset("/images/hero-oceano.png")}
-          alt="Textura oscura del oceano"
+          alt="Textura oscura del océano"
           fill
           priority
           sizes="100vw"
@@ -45,7 +45,7 @@ export default function CollectionPage() {
         <div className="collectionHeroOverlay" />
         <div className="collectionHeroContent">
           <p className="cinemaLabel">Streetwear oceánico editorial</p>
-          <h1>COLECCION</h1>
+          <h1>COLECCIÓN</h1>
           <p>Prendas creadas para llevar el océano, el viaje y la identidad en la piel.</p>
           <a href="#productos">
             Ver productos <ArrowRight aria-hidden="true" />
@@ -59,8 +59,7 @@ export default function CollectionPage() {
 
       <section className="collectionManifest">
         <p>
-          No es una tienda tradicional. Es una extensión de la bitácora: ropa, objetos y
-          piezas visuales para una comunidad que se reconoce cerca del mar.
+          Vestir el océano también es protegerlo.
         </p>
         <div>
           <Package aria-hidden="true" />

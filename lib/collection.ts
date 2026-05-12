@@ -7,18 +7,18 @@ export type Product = {
   name: string;
   price: string;
   category: ProductCategory;
-  tag?: "Nuevo" | "Limitado" | "Proximamente";
+  tag?: "Nuevo" | "Limitado" | "Próximamente";
   images: string[];
   description: string;
   sizes?: string[];
 };
 
-export const collectionCategories = ["Todo", "Polos", "Hoodies", "Accesorios", "Posters"] as const;
+export const collectionCategories = ["Polos", "Accesorios", "Posters"] as const;
 
 export const products: Product[] = [
   {
     slug: "polo-hijos-del-oceano",
-    name: "Polo Hijos del Oceano",
+    name: "Polo Hijos del Océano",
     price: "S/ 79",
     category: "Polos",
     tag: "Nuevo",
@@ -35,7 +35,7 @@ export const products: Product[] = [
     tag: "Limitado",
     images: ["/brand/polo-ocean-killers.png", "/brand/polo-drop-2.png"],
     description:
-      "Una pieza grafica para quienes entienden el oceano como memoria, camino y manifiesto personal.",
+      "Una pieza gráfica para quienes entienden el océano como memoria, camino y manifiesto personal.",
     sizes: ["S", "M", "L", "XL"],
   },
   {
@@ -43,15 +43,15 @@ export const products: Product[] = [
     name: "Hoodie Espiritu del Mar",
     price: "S/ 149",
     category: "Hoodies",
-    tag: "Proximamente",
+    tag: "Próximamente",
     images: ["/brand/ocean-killers.png", "/images/hero-oceano.png"],
     description:
-      "Hoodie oscuro de energia cinematografica, pensado para noches de ruta, viento frio y pertenencia oceánica.",
+      "Hoodie oscuro de energía cinematográfica, pensado para noches de ruta, viento frío y pertenencia oceánica.",
     sizes: ["S", "M", "L", "XL"],
   },
   {
     slug: "tote-bag-oceano-vivo",
-    name: "Tote Bag Oceano Vivo",
+    name: "Tote Bag Océano Vivo",
     price: "S/ 49",
     category: "Accesorios",
     tag: "Nuevo",
@@ -61,7 +61,7 @@ export const products: Product[] = [
   },
   {
     slug: "gorra-hijos-del-oceano",
-    name: "Gorra Hijos del Oceano",
+    name: "Gorra Hijos del Océano",
     price: "S/ 59",
     category: "Accesorios",
     images: ["/brand/logo-oficial.png", "/images/hero-oceano.png"],
@@ -76,7 +76,7 @@ export const products: Product[] = [
     tag: "Limitado",
     images: ["/brand/contaminacion-playa.jpg", "/brand/tortuga-lineal.jpg"],
     description:
-      "Pieza visual de pared con tono documental: una invitacion a mirar el oceano como territorio emocional.",
+      "Pieza visual de pared con tono documental: una invitación a mirar el océano como territorio emocional.",
   },
 ];
 

@@ -3,23 +3,15 @@
 import Image from "next/image";
 import { ArrowRight, ShoppingBag } from "lucide-react";
 import { useMemo, useState } from "react";
-import {
-  collectionCategories,
-  getProductUrl,
-  products,
-  type ProductCategory,
-} from "@/lib/collection";
+import { collectionCategories, getProductUrl, products } from "@/lib/collection";
 import { asset } from "@/lib/blog";
 
 type Filter = (typeof collectionCategories)[number];
 
 export default function ProductFilterGrid() {
-  const [activeFilter, setActiveFilter] = useState<Filter>("Todo");
+  const [activeFilter, setActiveFilter] = useState<Filter>("Polos");
   const visibleProducts = useMemo(
-    () =>
-      activeFilter === "Todo"
-        ? products
-        : products.filter((product) => product.category === (activeFilter as ProductCategory)),
+    () => products.filter((product) => product.category === activeFilter),
     [activeFilter],
   );
 
@@ -28,7 +20,7 @@ export default function ProductFilterGrid() {
       <div className="collectionSectionHead">
         <div>
           <p className="cinemaLabel">Drop inicial</p>
-          <h2>Prendas y objetos para llevar el oceano encima.</h2>
+          <h2>SOMOS LA VOZ DEL MAR</h2>
         </div>
         <div className="collectionFilters" aria-label="Filtros de productos">
           {collectionCategories.map((category) => (
