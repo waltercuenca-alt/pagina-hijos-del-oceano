@@ -5,12 +5,13 @@ import {
   BookOpen,
   Compass,
   Megaphone,
-  ShoppingBag,
   Shell,
-  Shirt,
   Waves,
 } from "lucide-react";
 import database from "@/data/hijos-del-oceano.database.json";
+
+const assetBase = process.env.GITHUB_PAGES === "true" ? "/pagina-hijos-del-oceano" : "";
+const asset = (path: string) => `${assetBase}${path}`;
 
 const values = [
   {
@@ -35,18 +36,21 @@ const products = [
     name: "Polos con mensaje",
     category: "Prenda base",
     price: "Próximamente",
+    image: "/brand/polo-ocean-killers.png",
     description: "Piezas para llevar una postura clara: el océano tiene voz.",
   },
   {
     name: "Hoodies de la tribu",
     category: "Abrigo",
     price: "Próximamente",
+    image: "/brand/polo-sun-wave.png",
     description: "Capas cómodas para quienes viven el mar como identidad.",
   },
   {
     name: "Tote bags reutilizables",
     category: "Accesorio",
     price: "Próximamente",
+    image: "/brand/polo-drop-2.png",
     description: "Una alternativa diaria contra el plástico de un solo uso.",
   },
 ];
@@ -55,18 +59,21 @@ const posts = [
   {
     title: "El mar no es tierra de nadie",
     tag: "Pesca ilegal",
+    image: "/brand/ocean-killers.png",
     excerpt:
       "Una nota para entender por qué la pesca informal rompe ecosistemas, economías locales y memoria marina.",
   },
   {
     title: "Lo que tiramos, vuelve",
     tag: "Plástico",
+    image: "/brand/contaminacion-playa.jpg",
     excerpt:
       "Cómo la contaminación plástica regresa a nuestra mesa, a nuestras playas y a nuestra forma de vivir.",
   },
   {
     title: "La indiferencia también contamina",
     tag: "Conciencia",
+    image: "/brand/tortuga-lineal.jpg",
     excerpt:
       "El primer acto de la tribu es mirar de frente el mar real, incluso cuando incomoda.",
   },
@@ -80,7 +87,7 @@ export default function Home() {
     <main>
       <section className="hero" aria-label="Hijos del Océano">
         <Image
-          src="/images/hero-oceano.png"
+          src={asset("/images/hero-oceano.png")}
           alt="Océano luminoso al amanecer"
           fill
           priority
@@ -90,7 +97,13 @@ export default function Home() {
         <div className="heroOverlay" />
         <nav className="nav" aria-label="Principal">
           <a className="brand" href="#inicio">
-            <Waves aria-hidden="true" />
+            <Image
+              src={asset("/brand/logo-oficial.png")}
+              alt=""
+              width={42}
+              height={42}
+              aria-hidden="true"
+            />
             {database.project.name}
           </a>
           <div className="navLinks">
@@ -101,6 +114,13 @@ export default function Home() {
           </div>
         </nav>
         <div className="heroContent" id="inicio">
+          <Image
+            src={asset("/brand/logo-oficial.png")}
+            alt="Logo Hijos del Océano"
+            width={116}
+            height={116}
+            className="heroLogo"
+          />
           <p className="eyebrow">{database.project.type}</p>
           <h1>{database.project.name}</h1>
           <p className="lead">{database.project.essence}</p>
@@ -148,11 +168,13 @@ export default function Home() {
           {products.map((product) => (
             <article className="product" key={product.name}>
               <div className="productVisual">
-                {product.name.includes("Polos") ? (
-                  <Shirt aria-hidden="true" />
-                ) : (
-                  <ShoppingBag aria-hidden="true" />
-                )}
+                <Image
+                  src={asset(product.image)}
+                  alt={product.name}
+                  width={900}
+                  height={700}
+                  sizes="(max-width: 760px) 100vw, 33vw"
+                />
               </div>
               <div className="productBody">
                 <p>{product.category}</p>
@@ -177,6 +199,14 @@ export default function Home() {
         <div className="postGrid">
           {posts.map((post) => (
             <article className="post" key={post.title}>
+              <div className="postImage">
+                <Image
+                  src={asset(post.image)}
+                  alt={post.title}
+                  fill
+                  sizes="(max-width: 760px) 100vw, 33vw"
+                />
+              </div>
               <BookOpen aria-hidden="true" />
               <p>{post.tag}</p>
               <h3>{post.title}</h3>
