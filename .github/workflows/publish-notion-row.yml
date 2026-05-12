@@ -1,0 +1,36 @@
+name: Publish Notion Blog Row
+
+on:
+  workflow_dispatch:
+    inputs:
+      page_id:
+        description: Notion page ID for the blog row
+        required: true
+      status_property:
+        description: Status property name
+        required: false
+        default: ESTADO
+      status_value:
+        description: Status value
+        required: false
+        default: Publicado
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Publish Notion row
+        run: node scripts/publish-notion-row.mjs
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          NOTION_PAGE_ID: ${{ inputs.page_id }}
+          NOTION_STATUS_PROPERTY: ${{ inputs.status_property }}
+          NOTION_STATUS_VALUE: ${{ inputs.status_value }}
