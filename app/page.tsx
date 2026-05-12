@@ -12,6 +12,7 @@ import database from "@/data/hijos-del-oceano.database.json";
 
 const assetBase = process.env.GITHUB_PAGES === "true" ? "/pagina-hijos-del-oceano" : "";
 const asset = (path: string) => `${assetBase}${path}`;
+const blogPath = asset("/blog/");
 
 const values = [
   {
@@ -109,7 +110,9 @@ export default function Home() {
           <div className="navLinks">
             <a href="#marca">Marca</a>
             <a href="#tienda">Tienda</a>
-            <a href="#blog">Blog</a>
+            <a href={blogPath} target="_blank" rel="noreferrer">
+              Blog
+            </a>
             <a href="#causa">Causa</a>
           </div>
         </nav>
@@ -211,10 +214,15 @@ export default function Home() {
               <p>{post.tag}</p>
               <h3>{post.title}</h3>
               <span>{post.excerpt}</span>
-              <a href="#blog">Leer nota</a>
+              <a href={blogPath} target="_blank" rel="noreferrer">
+                Leer nota
+              </a>
             </article>
           ))}
         </div>
+        <a className="blogCta" href={blogPath} target="_blank" rel="noreferrer">
+          Abrir blog activo <ArrowRight aria-hidden="true" />
+        </a>
       </section>
 
       <section className="chapters" id="causa">
