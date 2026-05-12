@@ -130,24 +130,24 @@ function richTextToPlain(richText = []) {
 function propertyToText(property) {
   if (!property) return "";
 
-  if (property.type === "title") return richTextToPlain(property.title);
-  if (property.type === "rich_text") return richTextToPlain(property.rich_text);
-  if (property.type === "select") return property.select?.name || "";
+  if (property.type === "title") return richTextToPlain(property.title).trim();
+  if (property.type === "rich_text") return richTextToPlain(property.rich_text).trim();
+  if (property.type === "select") return (property.select?.name || "").trim();
   if (property.type === "multi_select") {
-    return property.multi_select.map((item) => item.name).join(", ");
+    return property.multi_select.map((item) => item.name).join(", ").trim();
   }
-  if (property.type === "url") return property.url || "";
-  if (property.type === "email") return property.email || "";
-  if (property.type === "phone_number") return property.phone_number || "";
-  if (property.type === "date") return property.date?.start || "";
-  if (property.type === "created_time") return property.created_time || "";
-  if (property.type === "last_edited_time") return property.last_edited_time || "";
+  if (property.type === "url") return (property.url || "").trim();
+  if (property.type === "email") return (property.email || "").trim();
+  if (property.type === "phone_number") return (property.phone_number || "").trim();
+  if (property.type === "date") return (property.date?.start || "").trim();
+  if (property.type === "created_time") return (property.created_time || "").trim();
+  if (property.type === "last_edited_time") return (property.last_edited_time || "").trim();
   if (property.type === "people") {
-    return property.people.map((person) => person.name || person.id).join(", ");
+    return property.people.map((person) => person.name || person.id).join(", ").trim();
   }
   if (property.type === "files") {
     const file = property.files[0];
-    return file?.file?.url || file?.external?.url || "";
+    return (file?.file?.url || file?.external?.url || "").trim();
   }
 
   return "";
@@ -263,17 +263,36 @@ function pageToPost(page, content) {
   };
 }
 
+function isPublished(status) {
+  return status
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .includes("publicado");
+}
+
 try {
   databaseId = await resolveDatabaseId(configuredDatabaseId);
   const pages = await queryPublishedPages();
   const posts = [];
 
+  console.log(`Found ${pages.length} Notion rows in database.`);
+
   for (const page of pages) {
     const content = await fetchPageContent(page.id);
     const post = pageToPost(page, content);
+    const propertyNames = Object.keys(page.properties || {}).join(", ");
 
-    if (post.status.toLowerCase() === "publicado" && post.title) {
+    console.log(
+      `Row ${page.id}: title="${post.title || "(empty)"}" status="${post.status || "(empty)"}" type="${post.type}" properties=[${propertyNames}]`,
+    );
+
+    if (isPublished(post.status) && post.title) {
       posts.push(post);
+    } else {
+      console.log(
+        `Skipped row ${page.id}: ${!post.title ? "missing title" : "status is not Publicado"}`,
+      );
     }
   }
 
