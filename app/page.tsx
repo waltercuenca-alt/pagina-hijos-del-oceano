@@ -14,6 +14,7 @@ import database from "@/data/hijos-del-oceano.database.json";
 import { asset, getPostExcerpt, publishedPosts } from "@/lib/blog";
 
 const blogPath = asset("/blog/");
+const collectionPath = asset("/coleccion/");
 
 const manifestoLines = [
   "El océano no necesita más espectadores.",
@@ -107,6 +108,7 @@ export default function Home() {
           <div className="cinemaLinks">
             <a href="#manifiesto">Manifesto</a>
             <a href={blogPath}>Blog</a>
+            <a href={collectionPath}>Colección</a>
             <a href="#comunidad">Comunidad</a>
             <a href="#merch">Merch</a>
           </div>
@@ -236,8 +238,8 @@ export default function Home() {
         <div className="cinemaSectionHead">
           <p className="cinemaLabel">Merch editorial</p>
           <h2>Prendas para llevar una memoria, no solo un logo.</h2>
-          <a href="#footer">
-            Próximamente <Shirt aria-hidden="true" />
+          <a href={collectionPath}>
+            Ver colección <Shirt aria-hidden="true" />
           </a>
         </div>
         <div className="merchGrid">
@@ -273,6 +275,10 @@ export default function Home() {
           <a href={blogPath}>
             <BookOpen aria-hidden="true" />
             Blog
+          </a>
+          <a href={collectionPath}>
+            <Shirt aria-hidden="true" />
+            Colección
           </a>
           <a href="#comunidad">
             <Users aria-hidden="true" />
