@@ -197,32 +197,39 @@ function pageToPost(page, content) {
   };
 }
 
-const pages = await queryPublishedPages();
-const posts = [];
+try {
+  const pages = await queryPublishedPages();
+  const posts = [];
 
-for (const page of pages) {
-  const content = await fetchPageContent(page.id);
-  const post = pageToPost(page, content);
+  for (const page of pages) {
+    const content = await fetchPageContent(page.id);
+    const post = pageToPost(page, content);
 
-  if (post.status.toLowerCase() === "publicado" && post.title) {
-    posts.push(post);
+    if (post.status.toLowerCase() === "publicado" && post.title) {
+      posts.push(post);
+    }
+  }
+
+  await mkdir(path.dirname(outputPath), { recursive: true });
+  await writeFile(
+    outputPath,
+    `${JSON.stringify(
+      {
+        updatedAt: new Date().toISOString(),
+        source: "notion",
+        databaseId,
+        posts,
+      },
+      null,
+      2,
+    )}\n`,
+    "utf8",
+  );
+
+  console.log(`Synced ${posts.length} published Notion blog posts.`);
+} catch (error) {
+  console.warn(`Notion sync failed; keeping fallback blog data. ${error.message}`);
+  if (process.env.NOTION_SYNC_STRICT === "true") {
+    throw error;
   }
 }
-
-await mkdir(path.dirname(outputPath), { recursive: true });
-await writeFile(
-  outputPath,
-  `${JSON.stringify(
-    {
-      updatedAt: new Date().toISOString(),
-      source: "notion",
-      databaseId,
-      posts,
-    },
-    null,
-    2,
-  )}\n`,
-  "utf8",
-);
-
-console.log(`Synced ${posts.length} published Notion blog posts.`);
