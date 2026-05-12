@@ -45,8 +45,13 @@ export function getPostParagraphs(post: BlogPost) {
 export function getPostExcerpt(post: BlogPost, maxLength = 168) {
   const source = post.excerpt?.trim() || post.content?.trim() || "";
   const normalized = source.replace(/\s+/g, " ").trim();
+  const fullText = (post.content || "").replace(/\s+/g, " ").trim();
 
   if (normalized.length <= maxLength) {
+    if (fullText.length > normalized.length && fullText.startsWith(normalized)) {
+      return `${normalized.replace(/\s+\S*$/, "")}...`;
+    }
+
     return normalized;
   }
 
