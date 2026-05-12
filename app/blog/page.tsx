@@ -2,24 +2,39 @@ import Image from "next/image";
 import {
   ArrowLeft,
   ArrowRight,
-  BookOpen,
-  MessageCircle,
-  PenLine,
-  Send,
+  Calendar,
+  Clock,
+  Compass,
+  Feather,
+  Mail,
   Waves,
 } from "lucide-react";
 import database from "@/data/hijos-del-oceano.database.json";
-import { asset, blogSource, getBlogLastUpdated, publishedPosts } from "@/lib/blog";
+import {
+  asset,
+  blogSource,
+  formatBlogDate,
+  getBlogLastUpdated,
+  getReadingTime,
+  publishedPosts,
+} from "@/lib/blog";
+
+export const metadata = {
+  title: "Bitacora del Oceano | Hijos del Oceano",
+  description:
+    "Historias, reflexiones y voces nacidas desde el mar. Blog editorial de Hijos del Oceano.",
+};
 
 const allPosts = publishedPosts;
-const editorialPosts = allPosts.filter((post) => post.type !== "tribu");
-const tribePosts = allPosts.filter((post) => post.type === "tribu");
+const featuredPost = allPosts[0];
+const remainingPosts = allPosts.slice(1);
+const categories = Array.from(new Set(allPosts.map((post) => post.category))).slice(0, 6);
 const lastUpdated = getBlogLastUpdated();
 
 export default function BlogPage() {
   return (
-    <main className="blogPage">
-      <nav className="blogNav" aria-label="Blog">
+    <main className="blogPage journalPage">
+      <nav className="blogNav journalNav" aria-label="Blog">
         <a className="brand" href={asset("/")}>
           <Image
             src={asset("/brand/logo-oficial.png")}
@@ -36,40 +51,98 @@ export default function BlogPage() {
         </a>
       </nav>
 
-      <section className="blogHero">
-        <div>
-          <p className="sectionLabel">Blog activo</p>
-          <h1>Conciencia oceánica escrita por la marca y por la tribu.</h1>
-          <p>
-            Un espacio para notas, testimonios, denuncias visuales y aprendizajes
-            que ayuden a convertir amor por el mar en acción concreta.
-          </p>
-          <span className="syncStatus">
-            Fuente: {blogSource === "notion" ? "Notion" : "contenido inicial"} ·
-            actualizado {lastUpdated}
-          </span>
-        </div>
-        <div className="blogHeroCard">
-          <Waves aria-hidden="true" />
-          <h2>{database.project.slogan}</h2>
-          <p>{database.project.centralMessage}</p>
-          <a href="#participar">Proponer publicación</a>
+      <section className="journalHero" aria-label="Bitácora del Océano">
+        <Image
+          src={asset("/images/hero-oceano.png")}
+          alt="Océano abierto con luz cinematográfica"
+          fill
+          priority
+          sizes="100vw"
+          className="journalHeroImage"
+        />
+        <div className="journalHeroOverlay" />
+        <div className="journalHeroContent">
+          <p className="sectionLabel">Journal oceánico</p>
+          <h1>Bitácora del Océano</h1>
+          <p>Historias, reflexiones y voces nacidas desde el mar.</p>
+          <div className="journalHeroMeta" aria-label="Estado del blog">
+            <span>
+              <Waves aria-hidden="true" />
+              {blogSource === "notion" ? "Conectado a Notion" : "Contenido editorial"}
+            </span>
+            <span>Actualizado {lastUpdated}</span>
+          </div>
         </div>
       </section>
 
-      <section className="blogSection">
-        <div className="sectionHeader wideHeader">
-          <p className="sectionLabel">Notas de la marca</p>
-          <h2>Publicaciones editoriales de Hijos del Océano.</h2>
+      <section className="journalIntro" aria-label="Manifiesto editorial">
+        <div>
+          <p className="sectionLabel">Manifiesto visual</p>
+          <h2>Una comunidad que escribe desde la calma, la ruta y la conciencia.</h2>
+        </div>
+        <p>
+          Este blog no funciona como un archivo corporativo. Es una bitácora emocional:
+          notas de viaje, pensamiento oceánico, cultura de playa, denuncias necesarias
+          y pequeñas señales para volver a mirar el mar con pertenencia.
+        </p>
+      </section>
+
+      {featuredPost ? (
+        <section className="featuredArticle" aria-label="Artículo destacado">
+          <div className="featuredVisual">
+            <Image
+              src={asset(featuredPost.image)}
+              alt={featuredPost.title}
+              fill
+              sizes="(max-width: 900px) 100vw, 58vw"
+            />
+          </div>
+          <div className="featuredCopy">
+            <p className="sectionLabel">Featured article</p>
+            <h2>{featuredPost.title}</h2>
+            <p>{featuredPost.excerpt}</p>
+            <div className="postMeta">
+              <span>
+                <Calendar aria-hidden="true" />
+                {formatBlogDate(featuredPost.date)}
+              </span>
+              <span>
+                <Clock aria-hidden="true" />
+                {getReadingTime(featuredPost)}
+              </span>
+            </div>
+            <a className="journalReadLink" href={asset(`/blog/${featuredPost.slug}/`)}>
+              Leer historia completa <ArrowRight aria-hidden="true" />
+            </a>
+          </div>
+        </section>
+      ) : null}
+
+      <section className="categoryStrip" aria-label="Categorías">
+        <span>Categorías</span>
+        {categories.map((category) => (
+          <a href="#journal-posts" key={category}>
+            {category}
+          </a>
+        ))}
+      </section>
+
+      <section className="journalPosts" id="journal-posts">
+        <div className="journalSectionHeader">
+          <div>
+            <p className="sectionLabel">Últimas entradas</p>
+            <h2>Notas para despertar conciencia oceánica.</h2>
+          </div>
           <p>
-            Estas notas sostienen la voz oficial: poética, directa, incómoda
-            cuando hace falta y siempre orientada a actuar.
+            Un archivo vivo de historias, voces de la tribu y piezas editoriales
+            para cuidar lo que también somos.
           </p>
         </div>
-        <div className="blogArticleGrid">
-          {editorialPosts.map((post) => (
-            <a className="blogArticle" href={asset(`/blog/${post.slug}/`)} key={post.title}>
-              <div className="blogArticleImage">
+
+        <div className="journalGrid">
+          {(remainingPosts.length ? remainingPosts : allPosts).map((post) => (
+            <a className="journalPost" href={asset(`/blog/${post.slug}/`)} key={post.id}>
+              <div className="journalPostImage">
                 <Image
                   src={asset(post.image)}
                   alt={post.title}
@@ -77,104 +150,65 @@ export default function BlogPage() {
                   sizes="(max-width: 760px) 100vw, 33vw"
                 />
               </div>
-              <div className="blogArticleBody">
+              <div className="journalPostBody">
                 <p>{post.category}</p>
                 <h3>{post.title}</h3>
                 <span>{post.excerpt}</span>
-                <small>
-                  {post.author} · {post.date}
-                </small>
-                <strong>
-                  Leer completo <ArrowRight aria-hidden="true" />
-                </strong>
+                <div className="postMeta">
+                  <span>
+                    <Calendar aria-hidden="true" />
+                    {formatBlogDate(post.date)}
+                  </span>
+                  <span>
+                    <Clock aria-hidden="true" />
+                    {getReadingTime(post)}
+                  </span>
+                </div>
               </div>
             </a>
           ))}
         </div>
       </section>
 
-      <section className="blogSection tribeVoices">
-        <div className="sectionHeader wideHeader">
+      <section className="journalVoices" aria-label="Voces de la comunidad">
+        <Compass aria-hidden="true" />
+        <div>
           <p className="sectionLabel">Voces de la tribu</p>
-          <h2>Ideas y publicaciones que puede hacer la gente.</h2>
+          <h2>Publicar también puede ser una forma de cuidar.</h2>
           <p>
-            La tribu puede aportar experiencias, fotos, denuncias locales,
-            aprendizajes o columnas cortas sobre el mar que vive de cerca.
+            La bitácora queda preparada para recibir relatos, crónicas de playa,
+            aprendizajes y reflexiones conectadas con el océano.
           </p>
         </div>
-        <div className="tribeGrid">
-          {tribePosts.map((post) => (
-            <a className="tribePost" href={asset(`/blog/${post.slug}/`)} key={post.title}>
-              <MessageCircle aria-hidden="true" />
-              <p>{post.category}</p>
-              <h3>{post.title}</h3>
-              <span>{post.excerpt}</span>
-              <small>
-                {post.author} · {post.date}
-              </small>
-              <strong>
-                Leer completo <ArrowRight aria-hidden="true" />
-              </strong>
-            </a>
-          ))}
-        </div>
+        <a href="#newsletter">Unirme a la bitácora</a>
       </section>
 
-      <section className="participate" id="participar">
+      <section className="journalNewsletter" id="newsletter">
         <div>
-          <p className="sectionLabel">Participar</p>
-          <h2>Envía una idea para publicar en el blog.</h2>
+          <Feather aria-hidden="true" />
+          <p className="sectionLabel">Newsletter</p>
+          <h2>Cartas breves desde el mar.</h2>
           <p>
-            Esta versión deja listo el flujo editorial. Cuando conectemos un
-            formulario real, las propuestas podrán llegar directo a una base de
-            datos para revisión antes de publicarse.
+            Una invitación minimalista para recibir nuevas notas, lanzamientos y
+            acciones de conciencia oceánica.
           </p>
         </div>
-        <form className="submissionForm">
+        <form className="newsletterForm">
           <label>
-            Nombre
-            <input type="text" name="name" placeholder="Tu nombre o alias" />
-          </label>
-          <label>
-            Tema de la nota
-            <input type="text" name="topic" placeholder="Ej: plástico en mi playa" />
-          </label>
-          <label>
-            Tipo de publicación
-            <select name="type" defaultValue="testimonio">
-              <option value="testimonio">Testimonio</option>
-              <option value="denuncia">Denuncia visual</option>
-              <option value="opinion">Opinión</option>
-              <option value="accion">Acción real</option>
-            </select>
-          </label>
-          <label>
-            Resumen
-            <textarea
-              name="summary"
-              placeholder="Cuéntanos qué quieres publicar y por qué ayuda al océano."
-              rows={5}
-            />
+            Email
+            <input type="email" name="email" placeholder="tuemail@correo.com" />
           </label>
           <button type="button">
-            <Send aria-hidden="true" />
-            Enviar propuesta
+            <Mail aria-hidden="true" />
+            Suscribirme
           </button>
-          <p>
-            Pendiente de conexión: Google Forms, Notion, Sheets o backend propio.
-          </p>
         </form>
       </section>
 
-      <section className="blogManifest">
-        <PenLine aria-hidden="true" />
-        <h2>La voz del mar también se escribe.</h2>
-        <p>
-          Cada publicación debe conectar, educar o actuar por el océano. Si no
-          cumple eso, no entra en la marca.
-        </p>
-        <BookOpen aria-hidden="true" />
-      </section>
+      <footer className="journalFooter">
+        <p>HIJOS DEL OCÉANO</p>
+        <span>Libertad, conciencia y pertenencia desde el mar.</span>
+      </footer>
     </main>
   );
 }

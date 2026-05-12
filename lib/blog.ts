@@ -42,6 +42,14 @@ export function getPostParagraphs(post: BlogPost) {
     .filter(Boolean);
 }
 
+export function getReadingTime(post: BlogPost) {
+  const text = `${post.title} ${post.excerpt} ${post.content || ""}`;
+  const words = text.trim().split(/\s+/).filter(Boolean).length;
+  const minutes = Math.max(1, Math.ceil(words / 190));
+
+  return `${minutes} min`;
+}
+
 export function formatBlogDate(value: string) {
   if (!value) return "";
 

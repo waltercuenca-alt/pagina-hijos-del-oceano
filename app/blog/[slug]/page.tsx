@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ArrowLeft, BookOpen, ExternalLink } from "lucide-react";
+import { ArrowLeft, ArrowRight, Calendar, Clock, ExternalLink, Waves } from "lucide-react";
 import { notFound } from "next/navigation";
 import database from "@/data/hijos-del-oceano.database.json";
 import {
@@ -7,6 +7,7 @@ import {
   formatBlogDate,
   getPostBySlug,
   getPostParagraphs,
+  getReadingTime,
   publishedPosts,
 } from "@/lib/blog";
 
@@ -44,7 +45,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
   return (
     <main className="blogPage articlePage">
-      <nav className="blogNav" aria-label="Blog">
+      <nav className="blogNav journalNav" aria-label="Blog">
         <a className="brand" href={asset("/")}>
           <Image
             src={asset("/brand/logo-oficial.png")}
@@ -57,44 +58,68 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         </a>
         <a className="backLink" href={asset("/blog/")}>
           <ArrowLeft aria-hidden="true" />
-          Volver al blog
+          Volver a la bitácora
         </a>
       </nav>
 
-      <article className="articleLayout">
-        <header className="articleHeader">
+      <article className="cinematicArticle">
+        <header className="cinematicHeader">
           <p className="sectionLabel">{post.category}</p>
           <h1>{post.title}</h1>
           <p>{post.excerpt}</p>
           <div className="articleMeta">
             <span>{post.author}</span>
-            {post.date ? <span>{formatBlogDate(post.date)}</span> : null}
-            <span>{post.type === "tribu" ? "Voz de la tribu" : "Nota editorial"}</span>
+            {post.date ? (
+              <span>
+                <Calendar aria-hidden="true" />
+                {formatBlogDate(post.date)}
+              </span>
+            ) : null}
+            <span>
+              <Clock aria-hidden="true" />
+              {getReadingTime(post)}
+            </span>
           </div>
         </header>
 
-        <div className="articleCover">
+        <div className="cinematicCover">
           <Image
             src={asset(post.image)}
             alt={post.title}
             fill
             priority
-            sizes="(max-width: 900px) 100vw, 960px"
+            sizes="100vw"
           />
+          <div className="cinematicCoverShade" />
         </div>
 
-        <div className="articleBody">
-          <BookOpen aria-hidden="true" />
-          {paragraphs.map((paragraph) => (
-            <p key={paragraph}>{paragraph}</p>
-          ))}
-          {post.notionUrl ? (
-            <a href={post.notionUrl} target="_blank" rel="noreferrer">
-              Ver fuente en Notion <ExternalLink aria-hidden="true" />
-            </a>
-          ) : null}
+        <div className="cinematicBody">
+          <aside className="articleAside">
+            <Waves aria-hidden="true" />
+            <span>{post.type === "tribu" ? "Voz de la tribu" : "Nota editorial"}</span>
+          </aside>
+          <div className="articleText">
+            {paragraphs.map((paragraph, index) => (
+              <p className={index === 0 ? "articleLeadParagraph" : undefined} key={paragraph}>
+                {paragraph}
+              </p>
+            ))}
+            {post.notionUrl ? (
+              <a href={post.notionUrl} target="_blank" rel="noreferrer">
+                Ver fuente en Notion <ExternalLink aria-hidden="true" />
+              </a>
+            ) : null}
+          </div>
         </div>
       </article>
+
+      <section className="articleEndcap">
+        <p>HIJOS DEL OCÉANO</p>
+        <h2>El mar no se mira de lejos. Se pertenece.</h2>
+        <a href={asset("/blog/")}>
+          Leer más historias <ArrowRight aria-hidden="true" />
+        </a>
+      </section>
     </main>
   );
 }
