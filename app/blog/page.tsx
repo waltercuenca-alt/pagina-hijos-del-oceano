@@ -1,6 +1,7 @@
 import Image from "next/image";
 import {
   ArrowLeft,
+  ArrowRight,
   BookOpen,
   MessageCircle,
   PenLine,
@@ -8,33 +9,12 @@ import {
   Waves,
 } from "lucide-react";
 import database from "@/data/hijos-del-oceano.database.json";
-import blogData from "@/data/blog-posts.json";
+import { asset, blogSource, getBlogLastUpdated, publishedPosts } from "@/lib/blog";
 
-const assetBase = process.env.GITHUB_PAGES === "true" ? "/pagina-hijos-del-oceano" : "";
-const asset = (path: string) => `${assetBase}${path}`;
-
-type BlogPost = {
-  id: string;
-  title: string;
-  author: string;
-  category: string;
-  type: string;
-  status: string;
-  date: string;
-  image: string;
-  excerpt: string;
-  content?: string;
-  notionUrl?: string;
-};
-
-const allPosts = (blogData.posts as BlogPost[]).filter(
-  (post) => post.status.toLowerCase() === "publicado",
-);
+const allPosts = publishedPosts;
 const editorialPosts = allPosts.filter((post) => post.type !== "tribu");
 const tribePosts = allPosts.filter((post) => post.type === "tribu");
-const lastUpdated = new Intl.DateTimeFormat("es", {
-  dateStyle: "medium",
-}).format(new Date(blogData.updatedAt));
+const lastUpdated = getBlogLastUpdated();
 
 export default function BlogPage() {
   return (
@@ -65,7 +45,7 @@ export default function BlogPage() {
             que ayuden a convertir amor por el mar en acción concreta.
           </p>
           <span className="syncStatus">
-            Fuente: {blogData.source === "notion" ? "Notion" : "contenido inicial"} ·
+            Fuente: {blogSource === "notion" ? "Notion" : "contenido inicial"} ·
             actualizado {lastUpdated}
           </span>
         </div>
@@ -88,7 +68,7 @@ export default function BlogPage() {
         </div>
         <div className="blogArticleGrid">
           {editorialPosts.map((post) => (
-            <article className="blogArticle" key={post.title}>
+            <a className="blogArticle" href={asset(`/blog/${post.slug}/`)} key={post.title}>
               <div className="blogArticleImage">
                 <Image
                   src={asset(post.image)}
@@ -104,8 +84,11 @@ export default function BlogPage() {
                 <small>
                   {post.author} · {post.date}
                 </small>
+                <strong>
+                  Leer completo <ArrowRight aria-hidden="true" />
+                </strong>
               </div>
-            </article>
+            </a>
           ))}
         </div>
       </section>
@@ -121,7 +104,7 @@ export default function BlogPage() {
         </div>
         <div className="tribeGrid">
           {tribePosts.map((post) => (
-            <article className="tribePost" key={post.title}>
+            <a className="tribePost" href={asset(`/blog/${post.slug}/`)} key={post.title}>
               <MessageCircle aria-hidden="true" />
               <p>{post.category}</p>
               <h3>{post.title}</h3>
@@ -129,7 +112,10 @@ export default function BlogPage() {
               <small>
                 {post.author} · {post.date}
               </small>
-            </article>
+              <strong>
+                Leer completo <ArrowRight aria-hidden="true" />
+              </strong>
+            </a>
           ))}
         </div>
       </section>

@@ -544,10 +544,22 @@ h1 {
 
 .blogArticle,
 .tribePost {
+  display: block;
   overflow: hidden;
   border: 1px solid rgba(245, 251, 255, 0.12);
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.06);
+  transition:
+    border-color 180ms ease,
+    transform 180ms ease,
+    background 180ms ease;
+}
+
+.blogArticle:hover,
+.tribePost:hover {
+  border-color: rgba(61, 220, 220, 0.42);
+  background: rgba(255, 255, 255, 0.085);
+  transform: translateY(-2px);
 }
 
 .blogArticleImage {
@@ -594,6 +606,106 @@ h1 {
   margin-top: 20px;
   color: var(--sand);
   font-weight: 800;
+}
+
+.blogArticleBody strong,
+.tribePost strong {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 18px;
+  color: var(--sand);
+  font-size: 0.94rem;
+}
+
+.blogArticleBody strong svg,
+.tribePost strong svg {
+  width: 18px;
+  height: 18px;
+}
+
+.articlePage {
+  min-height: 100vh;
+}
+
+.articleLayout {
+  width: min(960px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 56px 0 86px;
+}
+
+.articleHeader {
+  max-width: 860px;
+}
+
+.articleHeader h1 {
+  max-width: 11ch;
+  font-size: clamp(3.1rem, 8vw, 7.2rem);
+}
+
+.articleHeader > p {
+  max-width: 780px;
+  margin: 28px 0 0;
+  color: var(--muted);
+  font-size: clamp(1.08rem, 2vw, 1.35rem);
+  line-height: 1.7;
+}
+
+.articleMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 26px;
+}
+
+.articleMeta span {
+  border: 1px solid rgba(245, 251, 255, 0.16);
+  border-radius: 999px;
+  padding: 8px 12px;
+  color: var(--sand);
+  font-size: 0.86rem;
+  font-weight: 800;
+  background: rgba(255, 255, 255, 0.055);
+}
+
+.articleCover {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1.82;
+  margin: 42px 0;
+  overflow: hidden;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.26);
+}
+
+.articleCover img {
+  object-fit: cover;
+}
+
+.articleBody {
+  max-width: 760px;
+  margin: 0 auto;
+  color: #d8ecec;
+  font-size: 1.14rem;
+  line-height: 1.85;
+}
+
+.articleBody > svg {
+  color: var(--sand);
+  margin-bottom: 10px;
+}
+
+.articleBody p {
+  margin: 0 0 24px;
+}
+
+.articleBody a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  color: var(--sand);
+  font-weight: 900;
 }
 
 .tribeVoices {
