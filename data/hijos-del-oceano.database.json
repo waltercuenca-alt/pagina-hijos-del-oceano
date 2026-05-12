@@ -1,0 +1,530 @@
+{
+    "project":  {
+                    "name":  "Hijos del Océano",
+                    "type":  "marca-movimiento",
+                    "slogan":  "SOMOS LA VOZ DEL MAR.",
+                    "guideQuestion":  "¿Esto ayuda a conectar, educar o actuar por el océano?",
+                    "essence":  "Una marca-movimiento que usa productos, contenido y acciones reales para defender el océano.",
+                    "centralMessage":  "Amar el mar no alcanza. Actuar es la diferencia."
+                },
+    "strategy":  {
+                     "purpose":  "Reunir a las personas que aman el mar y están dispuestas a respetarlo, protegerlo y vivir conectadas con él.",
+                     "mission":  "Convertir la conexión con el océano en conciencia, y la conciencia en acción.",
+                     "vision":  "Ser la marca de referencia en Latinoamérica para quienes sienten el mar como identidad y causa.",
+                     "positioning":  "La marca de ropa en Latinoamérica que convierte el amor por el mar en un acto político, cultural y emocional.",
+                     "differentiation":  [
+                                             "No es moda: es identidad",
+                                             "No es comunidad: es tribu",
+                                             "No es decoración: es denuncia",
+                                             "No vendemos ropa: vendemos pertenencia"
+                                         ],
+                     "notBrand":  [
+                                      "Marca de surf genérica",
+                                      "ONG",
+                                      "Marca de lujo",
+                                      "Catálogo de productos"
+                                  ]
+                 },
+    "audience":  {
+                     "age":  "18 a 35 años",
+                     "geography":  [
+                                       "Perú",
+                                       "Argentina",
+                                       "Latinoamérica"
+                                   ],
+                     "channels":  [
+                                      "Instagram"
+                                  ],
+                     "profile":  [
+                                     "Surfistas",
+                                     "Viajeros",
+                                     "Buceadores",
+                                     "Conservacionistas",
+                                     "Personas con conexión emocional con el mar"
+                                 ],
+                     "values":  [
+                                    "Naturaleza",
+                                    "Autenticidad",
+                                    "Causa",
+                                    "Comunidad",
+                                    "Impacto ambiental",
+                                    "Identidad"
+                                ]
+                 },
+    "brandArchitecture":  [
+                              {
+                                  "layer":  "Base",
+                                  "description":  "Ropa con propósito"
+                              },
+                              {
+                                  "layer":  "Contenido y educación",
+                                  "description":  "Redes sociales, storytelling, realidad del mar y documentación de acciones"
+                              },
+                              {
+                                  "layer":  "Expansión",
+                                  "description":  "Accesorios, productos reutilizables, arte oceánico, libros, guías, viajes y limpiezas"
+                              }
+                          ],
+    "pillars":  [
+                    {
+                        "name":  "Acción real",
+                        "details":  [
+                                        "Limpiezas de playas",
+                                        "Impacto tangible",
+                                        "Mostrar resultados, no promesas"
+                                    ]
+                    },
+                    {
+                        "name":  "Educación",
+                        "details":  [
+                                        "Contenido que informa sin aburrir",
+                                        "Mostrar la realidad del océano",
+                                        "Conciencia visual y emocional"
+                                    ]
+                    },
+                    {
+                        "name":  "Comunidad",
+                        "details":  [
+                                        "Personas que comparten valores",
+                                        "Participación activa",
+                                        "Movimiento, no solo marca"
+                                    ]
+                    }
+                ],
+    "visualIdentity":  {
+                           "colors":  [
+                                          {
+                                              "name":  "Turquesa profundo",
+                                              "hex":  "#1ABFBF",
+                                              "usage":  "Color principal"
+                                          },
+                                          {
+                                              "name":  "Turquesa claro",
+                                              "hex":  "#3DDCDC",
+                                              "usage":  "Highlights y variantes"
+                                          },
+                                          {
+                                              "name":  "Violeta mar",
+                                              "hex":  "#7B6BAE",
+                                              "usage":  "Color secundario / causa"
+                                          },
+                                          {
+                                              "name":  "Lavanda",
+                                              "hex":  "#9B8DC8",
+                                              "usage":  "Fondos suaves"
+                                          },
+                                          {
+                                              "name":  "Abismo",
+                                              "hex":  "#111111",
+                                              "usage":  "Fondo principal"
+                                          },
+                                          {
+                                              "name":  "Espuma",
+                                              "hex":  "#F5F5F0",
+                                              "usage":  "Textos sobre oscuro"
+                                          }
+                                      ],
+                           "typography":  {
+                                              "primary":  "Norsh Stamp",
+                                              "secondary":  "DM Sans",
+                                              "rule":  "Norsh Stamp manda. DM Sans acompaña. Nunca al revés."
+                                          }
+                       },
+    "voice":  {
+                  "tone":  [
+                               "Cercano",
+                               "Honesto",
+                               "Sin sermones",
+                               "Emocional",
+                               "Poético pero directo"
+                           ],
+                  "emotion":  "Amor profundo + urgencia necesaria",
+                  "forbidden":  [
+                                    "Sonar corporativo",
+                                    "Culpabilizar",
+                                    "Eco-friendly",
+                                    "Sustentable como palabra vacía"
+                                ],
+                  "channelTone":  [
+                                      {
+                                          "channel":  "Instagram feed",
+                                          "tone":  "Poético, profundo, con pregunta al final"
+                                      },
+                                      {
+                                          "channel":  "Instagram stories",
+                                          "tone":  "Cercano, rápido, como hablarle a un amigo"
+                                      },
+                                      {
+                                          "channel":  "DMs",
+                                          "tone":  "Cálido, personal, siempre con nombre"
+                                      },
+                                      {
+                                          "channel":  "Etiquetas de prendas",
+                                          "tone":  "Íntimo, como un secreto compartido"
+                                      }
+                                  ]
+              },
+    "problematics":  [
+                         {
+                             "name":  "Pesca informal e ilegal",
+                             "phrase":  "El mar no es tierra de nadie"
+                         },
+                         {
+                             "name":  "Contaminación plástica",
+                             "phrase":  "Lo que tiramos, vuelve"
+                         },
+                         {
+                             "name":  "Destrucción de ecosistemas",
+                             "phrase":  "Estamos borrando lo que no podemos recuperar"
+                         },
+                         {
+                             "name":  "Indiferencia social",
+                             "phrase":  "El peor enemigo no contamina: simplemente no mira"
+                         }
+                     ],
+    "glossary":  [
+                     {
+                         "term":  "Tribu",
+                         "meaning":  "La comunidad de Hijos del Océano. Nunca decimos comunidad, seguidores o clientes."
+                     },
+                     {
+                         "term":  "Hijo del Océano",
+                         "meaning":  "Persona que siente el mar como identidad y responsabilidad."
+                     },
+                     {
+                         "term":  "La voz",
+                         "meaning":  "El rol de la marca: hablar por el mar cuando nadie más lo hace."
+                     },
+                     {
+                         "term":  "El abismo",
+                         "meaning":  "Lo profundo, invisible y crudo de la realidad marina."
+                     },
+                     {
+                         "term":  "La tribu despierta",
+                         "meaning":  "Momento de activación colectiva."
+                     },
+                     {
+                         "term":  "Llevar el mensaje",
+                         "meaning":  "Usar la marca como declaración pública de valores."
+                     },
+                     {
+                         "term":  "El mar real",
+                         "meaning":  "El mar sin filtros, con sus problemas y belleza cruda."
+                     },
+                     {
+                         "term":  "Acto",
+                         "meaning":  "Cualquier acción consciente en favor del océano."
+                     }
+                 ],
+    "preferredWords":  [
+                           "Tribu",
+                           "Hijo del Océano",
+                           "La voz",
+                           "El abismo",
+                           "La tribu despierta",
+                           "Llevar el mensaje",
+                           "El mar real",
+                           "Acto",
+                           "Prenda",
+                           "Pieza",
+                           "Mensaje"
+                       ],
+    "forbiddenWords":  [
+                           "Clientes",
+                           "Followers",
+                           "Seguidores",
+                           "Producto",
+                           "Comunidad",
+                           "Eco-friendly",
+                           "Sustentable"
+                       ],
+    "sources":  [
+                    {
+                        "id":  "identidad_marca",
+                        "title":  "Identidad de Marca",
+                        "category":  "identidad",
+                        "paragraphs":  [
+                                           "?? Identidad de Marca",
+                                           "?? QU� ES HIJOS DEL OC�ANO (DE VERDAD)",
+                                           "Una marca�movimiento que usa productos, contenido y acciones reales para defender el oc�ano.",
+                                           "Un ecosistema con proposito",
+                                           "?? 1. ESTRUCTURA",
+                                           "? CAPA 1 � BASE",
+                                           "?? Ropa con prop�sito",
+                                           "?? CAPA 2 � CONTENIDO Y EDUCACI�N",
+                                           "??generar conciencia y educar desde",
+                                           "redes sociales",
+                                           "storytelling",
+                                           "mostrar realidad del mar",
+                                           "documentar acciones",
+                                           "?? CAPA 3 � EXPANSI�N",
+                                           "Productos posibles:",
+                                           "accesorios (gorras, tote bags, botellas)",
+                                           "productos reutilizables (anti pl�stico)",
+                                           "arte oce�nico",
+                                           "libros / gu�as",
+                                           "experiencias (viajes, limpiezas)",
+                                           "?? VISI�N",
+                                           "Hijos del Oc�ano busca convertirse en un movimiento global que conecte personas con el mar a trav�s de productos, contenido y acciones reales que generen impacto.",
+                                           "?? MISI�N",
+                                           "Inspirar y facilitar que m�s personas pasen del amor por el oc�ano a la acci�n concreta, a trav�s de productos con prop�sito, educaci�n y experiencias.",
+                                           "FRASE GUIA : �Esto ayuda a conectar, educar o actuar por el oc�ano?",
+                                           "Si la respuesta es no ? no entra en la marca.",
+                                           "?? Paleta de colores",
+                                           "Nombre",
+                                           "C�digo",
+                                           "Uso",
+                                           "Turquesa profundo",
+                                           "#1ABFBF",
+                                           "Color principal",
+                                           "Turquesa claro",
+                                           "#3DDCDC",
+                                           "Highlights y variantes",
+                                           "Violeta mar",
+                                           "#7B6BAE",
+                                           "Color secundario � causa",
+                                           "Lavanda",
+                                           "#9B8DC8",
+                                           "Fondos suaves",
+                                           "Abismo",
+                                           "#111111",
+                                           "Fondo principal",
+                                           "Espuma",
+                                           "#F5F5F0",
+                                           "Textos sobre oscuro",
+                                           "?? Tipograf�a",
+                                           "Principal: Norsh Stamp � t�tulos, logo, prendas, campa�as",
+                                           "Secundaria: DM Sans � textos, captions, descripciones",
+                                           "Norsh Stamp manda. DM Sans acompa�a. Nunca al rev�s.",
+                                           "?? Slogan oficial",
+                                           "SOMOS LA VOZ DEL MAR.",
+                                           "?? Sensaci�n final",
+                                           "Cuando alguien ve Hijos del Oc�ano debe sentir primero amor � ese amor antiguo y profundo que solo entienden los que crecieron mirando el mar.",
+                                           "Y despu�s, casi de inmediato, debe sentir que ese amor no alcanza. Que querer el mar sin cuidarlo es solo nostalgia. Que respetarlo es un acto diario, no una emoci�n de verano.",
+                                           "Llevar esta marca es enviar un mensaje sin decir una sola palabra � que el oc�ano tiene quien lo defienda. Que no est� solo. Que nosotros estamos aqu�.",
+                                           "SOMOS LA VOZ DEL MAR. ??",
+                                           "??  Escencia de la marca",
+                                           "Hijos del Oc�ano nace para quienes crecieron amando el mar� pero entendieron que amar no es suficiente.",
+                                           "Es una marca que transforma ese amor en acci�n real. No busca solo inspirar, sino generar impacto.",
+                                           "?? Es tomar postura.",
+                                           "?? PROPUESTA DE VALOR",
+                                           "Convertimos el amor por el oc�ano en acci�n concreta.",
+                                           "?? POSICIONAMIENTO",
+                                           "No somos una marca ecol�gica m�s. Somos una marca de acci�n.",
+                                           "?? Para personas que:",
+                                           "aman el mar",
+                                           "pero no quieren quedarse solo en el sentimiento",
+                                           "?? PILARES DE MARCA",
+                                           "1. ACCI�N REAL",
+                                           "Organizaci�n de limpiezas de playas",
+                                           "Impacto tangible (aunque sea peque�o al inicio)",
+                                           "Mostrar resultados, no promesas",
+                                           "2. EDUCACI�N",
+                                           "Contenido que informa sin aburrir",
+                                           "Mostrar la realidad del oc�ano",
+                                           "Generar conciencia desde lo visual y emocional",
+                                           "3. COMUNIDAD",
+                                           "Personas que comparten valores",
+                                           "Participaci�n activa",
+                                           "Movimiento, no solo marca",
+                                           "?? P�BLICO OBJETIVO",
+                                           "Personas que:",
+                                           "sienten conexi�n con el mar",
+                                           "han viajado, explorado o crecido cerca del oc�ano",
+                                           "valoran el impacto ambiental",
+                                           "buscan identidad, no solo ropa",
+                                           "?? No compran por moda. Compran por significado.",
+                                           "?? MENSAJE CENTRAL",
+                                           "Llevar Hijos del Oc�ano es:",
+                                           "representar una postura",
+                                           "formar parte de algo",
+                                           "actuar, aunque sea en peque�a escala",
+                                           "?? EXPERIENCIA DE MARCA",
+                                           "Cuando alguien ve Hijos del Oc�ano debe sentir:",
+                                           "Conexi�n emocional ? amor real por el mar",
+                                           "Incomodidad ? entender que no es suficiente",
+                                           "Impulso a actuar ? formar parte de la soluci�n",
+                                           "?? DIRECCI�N FUTURA",
+                                           "Hijos del Oc�ano no busca solo vender productos. Busca construir un movimiento donde:",
+                                           "cada acci�n suma",
+                                           "cada persona representa algo",
+                                           "cada prenda tiene un prop�sito",
+                                           "?? Voz y tono",
+                                           "Tono: Cercano, honesto, sin sermones",
+                                           "Emoci�n: Amor profundo + urgencia necesaria",
+                                           "Estilo: Po�tico pero directo. Nunca fr�o.",
+                                           "Prohibido: Sonar corporativo o culpabilizar"
+                                       ]
+                    },
+                    {
+                        "id":  "identidad_marca_2",
+                        "title":  "Identidad de Marca 2",
+                        "category":  "identidad",
+                        "paragraphs":  [
+                                           "?? Identidad de Marca 2",
+                                           "1. ESENCIA",
+                                           "Una marca�movimiento que usa productos, contenido y acciones reales para defender el oc�ano.",
+                                           "Un ecosistema con prop�sito.",
+                                           "2. MISI�N",
+                                           "Inspirar y facilitar que m�s personas pasen del amor por el oc�ano a la acci�n concreta, a trav�s de productos, educaci�n y experiencias.",
+                                           "3. VISI�N",
+                                           "Convertirse en un movimiento global que conecte personas con el mar y genere impacto real a trav�s de acciones visibles.",
+                                           "4. PROPUESTA DE VALOR",
+                                           "Convertimos el amor por el oc�ano en acci�n concreta.",
+                                           "Cada producto impulsa impacto real: limpieza, educaci�n y colaboraci�n.",
+                                           "5. POSICIONAMIENTO",
+                                           "No somos una marca ecol�gica m�s.",
+                                           "Somos para quienes aman el mar, pero no quieren quedarse de brazos cruzados.",
+                                           "6. ESTRUCTURA DE MARCA",
+                                           "CAPA 1 � BASE: Ropa con prop�sito",
+                                           "CAPA 2 � CONTENIDO: educaci�n, storytelling, mostrar realidad, documentar acciones",
+                                           "CAPA 3 � EXPANSI�N: accesorios, productos reutilizables, arte, experiencias",
+                                           "7. PILARES",
+                                           "Acci�n real",
+                                           "Educaci�n",
+                                           "Comunidad",
+                                           "8. P�BLICO OBJETIVO",
+                                           "Personas que sienten conexi�n con el mar, valoran el impacto ambiental y buscan identidad.",
+                                           "9. MENSAJE CENTRAL",
+                                           "Amar el mar no alcanza. Actuar es la diferencia.",
+                                           "10. SLOGAN",
+                                           "SOMOS LA VOZ DEL MAR",
+                                           "11. EXPERIENCIA DE MARCA",
+                                           "Conexi�n emocional",
+                                           "Incomodidad",
+                                           "Impulso a actuar",
+                                           "12. IDENTIDAD VISUAL",
+                                           "Turquesa profundo #1ABFBF",
+                                           "Turquesa claro #3DDCDC",
+                                           "Violeta mar #7B6BAE",
+                                           "Lavanda #9B8DC8",
+                                           "Abismo #111111",
+                                           "Espuma #F5F5F0",
+                                           "13. TIPOGRAF�A",
+                                           "Principal: Norsh Stamp",
+                                           "Secundaria: DM Sans",
+                                           "14. VOZ Y TONO",
+                                           "Cercano, honesto, emocional, po�tico pero directo.",
+                                           "Evitar tono corporativo o culpabilizador.",
+                                           "15. FRASE GU�A",
+                                           "�Esto ayuda a conectar, educar o actuar por el oc�ano?",
+                                           "Si no, no entra en la marca.",
+                                           "16. DIRECCI�N FUTURA",
+                                           "Construir un movimiento donde cada acci�n suma y cada producto tiene prop�sito."
+                                       ]
+                    },
+                    {
+                        "id":  "estrategia_marca",
+                        "title":  "Estrategia de Marca",
+                        "category":  "estrategia",
+                        "paragraphs":  [
+                                           "?? Estrategia de Marca",
+                                           "?? Prop�sito",
+                                           "Hijos del Oc�ano existe para reunir a las personas que aman el mar y est�n dispuestas a respetarlo, protegerlo y vivir conectadas con �l.",
+                                           "?? Misi�n",
+                                           "Convertir la conexi�n con el oc�ano en conciencia, y la conciencia en acci�n.",
+                                           "? Visi�n",
+                                           "Ser la marca de referencia en Latinoam�rica para quienes sienten el mar como identidad y causa.",
+                                           "?? P�blico objetivo",
+                                           "Perfil",
+                                           "Descripci�n",
+                                           "Edad",
+                                           "18 a 35 a�os",
+                                           "Conexi�n",
+                                           "Aman el mar � surfistas, viajeros, buceadores, conservacionistas",
+                                           "Valores",
+                                           "Naturaleza, autenticidad, causa, comunidad",
+                                           "Geograf�a",
+                                           "Per�, Argentina y Latinoam�rica",
+                                           "Canal",
+                                           "Instagram principalmente",
+                                           "?? Diferenciaci�n",
+                                           "No es moda � es identidad",
+                                           "No es comunidad � es tribu",
+                                           "No es decoraci�n � es denuncia",
+                                           "No vendemos ropa � vendemos pertenencia",
+                                           "?? Posicionamiento",
+                                           "Hijos del Oc�ano es la �nica marca de ropa en Latinoam�rica que convierte el amor por el mar en un acto pol�tico, cultural y emocional.",
+                                           "?? Lo que NO somos",
+                                           "No somos una marca de surf gen�rica",
+                                           "No somos una ONG",
+                                           "No somos una marca de lujo",
+                                           "No somos un cat�logo de productos"
+                                       ]
+                    },
+                    {
+                        "id":  "glosario_tribu",
+                        "title":  "Glosario de la Tribu",
+                        "category":  "lenguaje",
+                        "paragraphs":  [
+                                           "GLOSARIO DE LA TRIBU",
+                                           "Las palabras que usamos definen qui�nes somos. Este glosario establece el lenguaje oficial de Hijos del Oc�ano.",
+                                           "Palabras que usamos",
+                                           "Palabra",
+                                           "Significado en la marca",
+                                           "Tribu",
+                                           "La comunidad de Hijos del Oc�ano. Nunca decimos \"comunidad\", \"seguidores\" o \"clientes\"",
+                                           "Hijo del Oc�ano",
+                                           "Cualquier persona que siente el mar como identidad y responsabilidad",
+                                           "La voz",
+                                           "El rol de la marca � hablar por el mar cuando nadie m�s lo hace",
+                                           "El abismo",
+                                           "Lo profundo, lo invisible, lo que pocos quieren ver. El lado oscuro de la realidad marina",
+                                           "La tribu despierta",
+                                           "Momento de activaci�n � cuando la comunidad act�a colectivamente",
+                                           "Llevar el mensaje",
+                                           "Usar la marca como declaraci�n p�blica de valores",
+                                           "El mar real",
+                                           "El mar sin filtros, sin postales, con sus problemas y su belleza cruda",
+                                           "Acto",
+                                           "Cualquier acci�n consciente en favor del oc�ano",
+                                           "Palabras que NO usamos",
+                                           "Palabra",
+                                           "Por qu� no",
+                                           "Clientes",
+                                           "Somos tribu, no transacci�n",
+                                           "Followers / Seguidores",
+                                           "Son miembros, no m�tricas",
+                                           "Producto",
+                                           "Decimos prenda, pieza o mensaje",
+                                           "Comunidad",
+                                           "Tribu tiene m�s fuerza y exclusividad",
+                                           "Eco-friendly",
+                                           "Suena corporativo y vac�o",
+                                           "Sustentable",
+                                           "Overused, perdi� impacto",
+                                           "Tono en cada canal",
+                                           "Canal",
+                                           "Tono",
+                                           "Instagram feed",
+                                           "Po�tico, profundo, con pregunta al final",
+                                           "Instagram stories",
+                                           "Cercano, r�pido, como hablarle a un amigo",
+                                           "DMs",
+                                           "C�lido, personal, siempre con nombre",
+                                           "Etiquetas de prendas",
+                                           "�ntimo, como un secreto compartido"
+                                       ]
+                    },
+                    {
+                        "id":  "problematicas",
+                        "title":  "Problemáticas",
+                        "category":  "causa",
+                        "paragraphs":  [
+                                           "Problem�ticas",
+                                           "? Los cuatro frentes que denuncia �",
+                                           "Pesca informal e ilegal � El mar no es tierra de nadie �",
+                                           "Contaminaci�n pl�stica � Lo que tiramos, vuelve �",
+                                           "Destrucci�n de ecosistemas � Estamos borrando lo que no podemos recuperar �",
+                                           "Indiferencia social � El peor enemigo no contamina: simplemente no mira"
+                                       ]
+                    }
+                ],
+    "assets":  [
+                   {
+                       "id":  "img_6520",
+                       "type":  "reference-image",
+                       "sourcePath":  "C:\\Users\\Usuario\\Documents\\New project\\hijos-del-oceano-data\\docs\\IMG_6520.heic"
+                   }
+               ]
+}
