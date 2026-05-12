@@ -2,6 +2,7 @@ const token = process.env.NOTION_TOKEN;
 const pageId = process.env.NOTION_PAGE_ID;
 const statusProperty = process.env.NOTION_STATUS_PROPERTY || "ESTADO";
 const statusValue = process.env.NOTION_STATUS_VALUE || "Publicado";
+const statusPropertyType = process.env.NOTION_STATUS_PROPERTY_TYPE || "status";
 const notionVersion = process.env.NOTION_VERSION || "2022-06-28";
 
 if (!token || !pageId) {
@@ -17,11 +18,18 @@ const response = await fetch(`https://api.notion.com/v1/pages/${pageId}`, {
   },
   body: JSON.stringify({
     properties: {
-      [statusProperty]: {
-        select: {
-          name: statusValue,
-        },
-      },
+      [statusProperty]:
+        statusPropertyType === "select"
+          ? {
+              select: {
+                name: statusValue,
+              },
+            }
+          : {
+              status: {
+                name: statusValue,
+              },
+            },
     },
   }),
 });

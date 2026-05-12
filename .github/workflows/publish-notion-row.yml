@@ -14,6 +14,10 @@ on:
         description: Status value
         required: false
         default: Publicado
+      status_property_type:
+        description: Notion property type for status field
+        required: false
+        default: status
 
 jobs:
   publish:
@@ -34,3 +38,4 @@ jobs:
           NOTION_PAGE_ID: ${{ inputs.page_id }}
           NOTION_STATUS_PROPERTY: ${{ inputs.status_property }}
           NOTION_STATUS_VALUE: ${{ inputs.status_value }}
+          NOTION_STATUS_PROPERTY_TYPE: ${{ inputs.status_property_type }}
