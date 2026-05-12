@@ -8,63 +8,33 @@ import {
   Waves,
 } from "lucide-react";
 import database from "@/data/hijos-del-oceano.database.json";
+import blogData from "@/data/blog-posts.json";
 
 const assetBase = process.env.GITHUB_PAGES === "true" ? "/pagina-hijos-del-oceano" : "";
 const asset = (path: string) => `${assetBase}${path}`;
 
-const editorialPosts = [
-  {
-    title: "El mar no es tierra de nadie",
-    author: "Hijos del Océano",
-    tag: "Pesca ilegal",
-    image: "/brand/ocean-killers.png",
-    excerpt:
-      "Una mirada directa a la pesca informal, sus consecuencias invisibles y la urgencia de defender el mar real.",
-    status: "Publicado",
-  },
-  {
-    title: "Lo que tiramos, vuelve",
-    author: "Hijos del Océano",
-    tag: "Plástico",
-    image: "/brand/contaminacion-playa.jpg",
-    excerpt:
-      "El plástico no desaparece: cambia de forma, vuelve a la playa y termina entrando en nuestra vida diaria.",
-    status: "Publicado",
-  },
-  {
-    title: "La indiferencia también contamina",
-    author: "Hijos del Océano",
-    tag: "Conciencia",
-    image: "/brand/tortuga-lineal.jpg",
-    excerpt:
-      "Antes de actuar, la tribu aprende a mirar. Esta nota habla del enemigo más silencioso del océano.",
-    status: "Publicado",
-  },
-];
+type BlogPost = {
+  id: string;
+  title: string;
+  author: string;
+  category: string;
+  type: string;
+  status: string;
+  date: string;
+  image: string;
+  excerpt: string;
+  content?: string;
+  notionUrl?: string;
+};
 
-const tribePosts = [
-  {
-    title: "Mi playa cambió en cinco años",
-    author: "Voz de la tribu",
-    tag: "Testimonio",
-    excerpt:
-      "Historias personales sobre lugares que antes parecían intactos y hoy muestran señales claras de abandono.",
-  },
-  {
-    title: "Una limpieza no es solo recoger basura",
-    author: "Voz de la tribu",
-    tag: "Acción",
-    excerpt:
-      "Crónicas de acciones pequeñas que ayudan a medir, conversar y activar conciencia local.",
-  },
-  {
-    title: "El mar que heredamos",
-    author: "Voz de la tribu",
-    tag: "Opinión",
-    excerpt:
-      "Textos breves para pensar qué significa amar el océano cuando también toca defenderlo.",
-  },
-];
+const allPosts = (blogData.posts as BlogPost[]).filter(
+  (post) => post.status.toLowerCase() === "publicado",
+);
+const editorialPosts = allPosts.filter((post) => post.type !== "tribu");
+const tribePosts = allPosts.filter((post) => post.type === "tribu");
+const lastUpdated = new Intl.DateTimeFormat("es", {
+  dateStyle: "medium",
+}).format(new Date(blogData.updatedAt));
 
 export default function BlogPage() {
   return (
@@ -94,6 +64,10 @@ export default function BlogPage() {
             Un espacio para notas, testimonios, denuncias visuales y aprendizajes
             que ayuden a convertir amor por el mar en acción concreta.
           </p>
+          <span className="syncStatus">
+            Fuente: {blogData.source === "notion" ? "Notion" : "contenido inicial"} ·
+            actualizado {lastUpdated}
+          </span>
         </div>
         <div className="blogHeroCard">
           <Waves aria-hidden="true" />
@@ -124,11 +98,11 @@ export default function BlogPage() {
                 />
               </div>
               <div className="blogArticleBody">
-                <p>{post.tag}</p>
+                <p>{post.category}</p>
                 <h3>{post.title}</h3>
                 <span>{post.excerpt}</span>
                 <small>
-                  {post.author} · {post.status}
+                  {post.author} · {post.date}
                 </small>
               </div>
             </article>
@@ -149,10 +123,12 @@ export default function BlogPage() {
           {tribePosts.map((post) => (
             <article className="tribePost" key={post.title}>
               <MessageCircle aria-hidden="true" />
-              <p>{post.tag}</p>
+              <p>{post.category}</p>
               <h3>{post.title}</h3>
               <span>{post.excerpt}</span>
-              <small>{post.author}</small>
+              <small>
+                {post.author} · {post.date}
+              </small>
             </article>
           ))}
         </div>

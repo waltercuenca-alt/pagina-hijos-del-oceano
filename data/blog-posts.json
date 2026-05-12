@@ -1,0 +1,84 @@
+{
+  "updatedAt": "2026-05-12T00:00:00.000Z",
+  "source": "fallback",
+  "posts": [
+    {
+      "id": "ocean-killers",
+      "title": "El mar no es tierra de nadie",
+      "slug": "el-mar-no-es-tierra-de-nadie",
+      "author": "Hijos del Océano",
+      "category": "Pesca ilegal",
+      "type": "marca",
+      "status": "Publicado",
+      "date": "2026-05-12",
+      "image": "/brand/ocean-killers.png",
+      "excerpt": "Una mirada directa a la pesca informal, sus consecuencias invisibles y la urgencia de defender el mar real.",
+      "content": "La pesca informal no solo extrae peces. También rompe ciclos, borra especies pequeñas antes de que crezcan y vuelve invisible una crisis que ocurre lejos de la mirada cotidiana."
+    },
+    {
+      "id": "plastico-vuelve",
+      "title": "Lo que tiramos, vuelve",
+      "slug": "lo-que-tiramos-vuelve",
+      "author": "Hijos del Océano",
+      "category": "Plástico",
+      "type": "marca",
+      "status": "Publicado",
+      "date": "2026-05-12",
+      "image": "/brand/contaminacion-playa.jpg",
+      "excerpt": "El plástico no desaparece: cambia de forma, vuelve a la playa y termina entrando en nuestra vida diaria.",
+      "content": "Cada botella que llega al mar cuenta una historia de consumo, descuido e indiferencia. La pregunta no es solo quién la tiró, sino qué sistema permitió que volviera al océano."
+    },
+    {
+      "id": "indiferencia",
+      "title": "La indiferencia también contamina",
+      "slug": "la-indiferencia-tambien-contamina",
+      "author": "Hijos del Océano",
+      "category": "Conciencia",
+      "type": "marca",
+      "status": "Publicado",
+      "date": "2026-05-12",
+      "image": "/brand/tortuga-lineal.jpg",
+      "excerpt": "Antes de actuar, la tribu aprende a mirar. Esta nota habla del enemigo más silencioso del océano.",
+      "content": "La indiferencia no deja manchas visibles, pero permite que todo siga igual. Mirar de frente el mar real es el primer acto de defensa."
+    },
+    {
+      "id": "mi-playa-cambio",
+      "title": "Mi playa cambió en cinco años",
+      "slug": "mi-playa-cambio-en-cinco-anos",
+      "author": "Voz de la tribu",
+      "category": "Testimonio",
+      "type": "tribu",
+      "status": "Publicado",
+      "date": "2026-05-12",
+      "image": "/brand/contaminacion-playa.jpg",
+      "excerpt": "Historias personales sobre lugares que antes parecían intactos y hoy muestran señales claras de abandono.",
+      "content": "Las voces de la tribu ayudan a registrar lo que cambia en cada costa. Esa memoria también es una forma de acción."
+    },
+    {
+      "id": "limpieza-no-es-basura",
+      "title": "Una limpieza no es solo recoger basura",
+      "slug": "una-limpieza-no-es-solo-recoger-basura",
+      "author": "Voz de la tribu",
+      "category": "Acción",
+      "type": "tribu",
+      "status": "Publicado",
+      "date": "2026-05-12",
+      "image": "/brand/ocean-killers.png",
+      "excerpt": "Crónicas de acciones pequeñas que ayudan a medir, conversar y activar conciencia local.",
+      "content": "Una limpieza también es conversación, medición, presencia y señal pública. La tribu despierta cuando el acto se vuelve visible."
+    },
+    {
+      "id": "mar-heredamos",
+      "title": "El mar que heredamos",
+      "slug": "el-mar-que-heredamos",
+      "author": "Voz de la tribu",
+      "category": "Opinión",
+      "type": "tribu",
+      "status": "Publicado",
+      "date": "2026-05-12",
+      "image": "/brand/tortuga-lineal.jpg",
+      "excerpt": "Textos breves para pensar qué significa amar el océano cuando también toca defenderlo.",
+      "content": "Nadie hereda un mar intacto por accidente. Lo que recibimos depende de lo que alguien antes decidió cuidar."
+    }
+  ]
+}
