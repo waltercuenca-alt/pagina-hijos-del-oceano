@@ -148,6 +148,7 @@ function propertyToText(property) {
   if (property.type === "title") return richTextToPlain(property.title).trim();
   if (property.type === "rich_text") return richTextToPlain(property.rich_text).trim();
   if (property.type === "select") return (property.select?.name || "").trim();
+  if (property.type === "status") return (property.status?.name || "").trim();
   if (property.type === "multi_select") {
     return property.multi_select.map((item) => item.name).join(", ").trim();
   }
