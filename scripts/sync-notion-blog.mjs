@@ -2,7 +2,8 @@ import { mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 
 const token = process.env.NOTION_TOKEN;
-const databaseId = process.env.NOTION_DATABASE_ID;
+const configuredDatabaseId = process.env.NOTION_DATABASE_ID;
+let databaseId = configuredDatabaseId;
 const notionVersion = process.env.NOTION_VERSION || "2022-06-28";
 const outputPath = path.join(process.cwd(), "data", "blog-posts.json");
 
@@ -18,7 +19,7 @@ const textPropertyNames = {
   date: ["Fecha", "Date", "Publicado", "Published"],
 };
 
-if (!token || !databaseId) {
+if (!token || !configuredDatabaseId) {
   console.log("Notion sync skipped: NOTION_TOKEN or NOTION_DATABASE_ID is missing.");
   process.exit(0);
 }
@@ -46,6 +47,71 @@ async function notionRequest(endpoint, options = {}) {
   }
 
   return response.json();
+}
+
+async function notionRequestResult(endpoint, options = {}) {
+  const response = await fetch(`https://api.notion.com/v1${endpoint}`, {
+    ...options,
+    headers: {
+      ...notionHeaders(),
+      ...(options.headers || {}),
+    },
+  });
+
+  const body = await response.text();
+  let data;
+
+  try {
+    data = body ? JSON.parse(body) : {};
+  } catch {
+    data = { raw: body };
+  }
+
+  return {
+    ok: response.ok,
+    status: response.status,
+    data,
+  };
+}
+
+async function resolveDatabaseId(id) {
+  const databaseResult = await notionRequestResult(`/databases/${id}`);
+
+  if (databaseResult.ok) {
+    return id;
+  }
+
+  const message = databaseResult.data?.message || "";
+
+  if (!message.includes("page, not a database")) {
+    throw new Error(`Notion API ${databaseResult.status}: ${JSON.stringify(databaseResult.data)}`);
+  }
+
+  const blocks = [];
+  let cursor;
+
+  do {
+    const query = cursor ? `?start_cursor=${cursor}` : "";
+    const blockResult = await notionRequestResult(`/blocks/${id}/children${query}`);
+
+    if (!blockResult.ok) {
+      throw new Error(`Notion API ${blockResult.status}: ${JSON.stringify(blockResult.data)}`);
+    }
+
+    blocks.push(...blockResult.data.results);
+    cursor = blockResult.data.has_more ? blockResult.data.next_cursor : undefined;
+  } while (cursor);
+
+  const childDatabase = blocks.find((block) => block.type === "child_database");
+
+  if (!childDatabase) {
+    throw new Error(
+      "The provided Notion ID is a page, but no database was found inside it. Create a table database inside that page or use the database ID directly.",
+    );
+  }
+
+  console.log(`Resolved Notion page to child database: ${childDatabase.child_database?.title || childDatabase.id}`);
+  return childDatabase.id;
 }
 
 function pickProperty(properties, names) {
@@ -198,6 +264,7 @@ function pageToPost(page, content) {
 }
 
 try {
+  databaseId = await resolveDatabaseId(configuredDatabaseId);
   const pages = await queryPublishedPages();
   const posts = [];
 
