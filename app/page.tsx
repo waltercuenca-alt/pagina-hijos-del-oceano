@@ -110,9 +110,7 @@ export default function Home() {
           <div className="navLinks">
             <a href="#marca">Marca</a>
             <a href="#tienda">Tienda</a>
-            <a href={blogPath} target="_blank" rel="noreferrer">
-              Blog
-            </a>
+            <a href={blogPath}>Blog</a>
             <a href="#causa">Causa</a>
           </div>
         </nav>
@@ -214,13 +212,11 @@ export default function Home() {
               <p>{post.tag}</p>
               <h3>{post.title}</h3>
               <span>{post.excerpt}</span>
-              <a href={blogPath} target="_blank" rel="noreferrer">
-                Leer nota
-              </a>
+              <a href={blogPath}>Leer nota</a>
             </article>
           ))}
         </div>
-        <a className="blogCta" href={blogPath} target="_blank" rel="noreferrer">
+        <a className="blogCta" href={blogPath}>
           Abrir blog activo <ArrowRight aria-hidden="true" />
         </a>
       </section>
