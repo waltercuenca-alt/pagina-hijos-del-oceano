@@ -115,11 +115,26 @@ async function resolveDatabaseId(id) {
 }
 
 function pickProperty(properties, names) {
+  const entries = Object.entries(properties);
+  const normalize = (value) =>
+    value
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .toLowerCase();
+  const normalizedNames = names.map(normalize);
+
   for (const name of names) {
     if (properties[name]) {
       return properties[name];
     }
   }
+
+  for (const [propertyName, property] of entries) {
+    if (normalizedNames.includes(normalize(propertyName))) {
+      return property;
+    }
+  }
+
   return undefined;
 }
 
