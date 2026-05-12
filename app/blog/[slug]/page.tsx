@@ -6,6 +6,7 @@ import {
   asset,
   formatBlogDate,
   getPostBySlug,
+  getPostExcerpt,
   getPostParagraphs,
   getReadingTime,
   publishedPosts,
@@ -29,7 +30,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
   return {
     title: `${post.title} | Hijos del Oceano`,
-    description: post.excerpt,
+    description: getPostExcerpt(post, 155),
   };
 }
 
@@ -66,7 +67,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         <header className="cinematicHeader">
           <p className="sectionLabel">{post.category}</p>
           <h1>{post.title}</h1>
-          <p>{post.excerpt}</p>
+          <p>{getPostExcerpt(post, 220)}</p>
           <div className="articleMeta">
             <span>{post.author}</span>
             {post.date ? (

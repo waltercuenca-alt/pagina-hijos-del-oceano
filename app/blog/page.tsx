@@ -15,6 +15,7 @@ import {
   blogSource,
   formatBlogDate,
   getBlogLastUpdated,
+  getPostExcerpt,
   getReadingTime,
   publishedPosts,
 } from "@/lib/blog";
@@ -100,7 +101,7 @@ export default function BlogPage() {
           <div className="featuredCopy">
             <p className="sectionLabel">Featured article</p>
             <h2>{featuredPost.title}</h2>
-            <p>{featuredPost.excerpt}</p>
+            <p>{getPostExcerpt(featuredPost, 220)}</p>
             <div className="postMeta">
               <span>
                 <Calendar aria-hidden="true" />
@@ -153,7 +154,7 @@ export default function BlogPage() {
               <div className="journalPostBody">
                 <p>{post.category}</p>
                 <h3>{post.title}</h3>
-                <span>{post.excerpt}</span>
+                <span>{getPostExcerpt(post)}</span>
                 <div className="postMeta">
                   <span>
                     <Calendar aria-hidden="true" />

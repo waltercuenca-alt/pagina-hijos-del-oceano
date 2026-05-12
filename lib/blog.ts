@@ -42,6 +42,17 @@ export function getPostParagraphs(post: BlogPost) {
     .filter(Boolean);
 }
 
+export function getPostExcerpt(post: BlogPost, maxLength = 168) {
+  const source = post.excerpt?.trim() || post.content?.trim() || "";
+  const normalized = source.replace(/\s+/g, " ").trim();
+
+  if (normalized.length <= maxLength) {
+    return normalized;
+  }
+
+  return `${normalized.slice(0, maxLength).replace(/\s+\S*$/, "")}...`;
+}
+
 export function getReadingTime(post: BlogPost) {
   const text = `${post.title} ${post.excerpt} ${post.content || ""}`;
   const words = text.trim().split(/\s+/).filter(Boolean).length;
