@@ -14,13 +14,6 @@ import database from "@/data/hijos-del-oceano.database.json";
 import { asset, getPostExcerpt, publishedPosts } from "@/lib/blog";
 
 const blogPath = asset("/blog/");
-const symbolPaths = [
-  "/symbols/ocean-symbols-01.jpg",
-  "/symbols/ocean-symbols-02.jpg",
-  "/symbols/ocean-symbols-03.jpg",
-  "/symbols/ocean-symbols-04.jpg",
-  "/symbols/ocean-symbols-05.jpg",
-];
 
 const manifestoLines = [
   "El océano no necesita más espectadores.",
@@ -88,16 +81,6 @@ export default function Home() {
 
   return (
     <main className="cinemaHome">
-      <div className="oceanLoader" aria-hidden="true">
-        <Image
-          src={asset("/symbols/ocean-symbols-05.jpg")}
-          alt=""
-          width={180}
-          height={180}
-        />
-        <span>Volviendo al océano...</span>
-      </div>
-
       <section className="cinemaHero" id="inicio" aria-label="Hijos del Océano">
         <Image
           src={asset("/images/hero-oceano.png")}
@@ -109,11 +92,6 @@ export default function Home() {
         />
         <div className="cinemaGrain" />
         <div className="cinemaHeroShade" />
-        <div className="heroSymbolCloud" aria-hidden="true">
-          <Image src={asset("/symbols/ocean-symbols-01.jpg")} alt="" width={210} height={210} />
-          <Image src={asset("/symbols/ocean-symbols-05.jpg")} alt="" width={170} height={170} />
-          <Image src={asset("/symbols/ocean-symbols-03.jpg")} alt="" width={190} height={190} />
-        </div>
 
         <nav className="cinemaNav" aria-label="Principal">
           <a className="cinemaBrand" href="#inicio">
@@ -152,37 +130,14 @@ export default function Home() {
         </a>
       </section>
 
-      <div className="symbolDivider" aria-hidden="true">
-        {symbolPaths.slice(0, 4).map((symbol) => (
-          <Image src={asset(symbol)} alt="" width={64} height={64} key={symbol} />
-        ))}
-      </div>
-
       <section className="cinemaManifesto" id="manifiesto">
-        <Image
-          className="manifestoWatermark"
-          src={asset("/symbols/ocean-symbols-03.jpg")}
-          alt=""
-          width={520}
-          height={520}
-          aria-hidden="true"
-        />
         <div className="manifestoIntro">
           <p className="cinemaLabel">Manifiesto</p>
           <h2>Una identidad para quienes sienten que el mar también los recuerda.</h2>
         </div>
         <div className="manifestoLines">
-          {manifestoLines.map((line, index) => (
-            <p key={line}>
-              <Image
-                src={asset(symbolPaths[index])}
-                alt=""
-                width={46}
-                height={46}
-                aria-hidden="true"
-              />
-              {line}
-            </p>
+          {manifestoLines.map((line) => (
+            <p key={line}>{line}</p>
           ))}
         </div>
       </section>
@@ -223,14 +178,6 @@ export default function Home() {
       ))}
 
       <section className="homeJournal" id="blog">
-        <Image
-          className="sectionWatermark journalMark"
-          src={asset("/symbols/ocean-symbols-02.jpg")}
-          alt=""
-          width={560}
-          height={560}
-          aria-hidden="true"
-        />
         <div className="cinemaSectionHead">
           <p className="cinemaLabel">Bitácora oceánica</p>
           <h2>Historias, reflexiones y voces nacidas desde el mar.</h2>
@@ -258,14 +205,6 @@ export default function Home() {
       </section>
 
       <section className="communityImpact" id="comunidad">
-        <Image
-          className="sectionWatermark communityMark"
-          src={asset("/symbols/ocean-symbols-04.jpg")}
-          alt=""
-          width={420}
-          height={420}
-          aria-hidden="true"
-        />
         <div className="impactVisual">
           <Image
             src={asset("/brand/contaminacion-playa.jpg")}
@@ -294,14 +233,6 @@ export default function Home() {
       </section>
 
       <section className="editorialMerch" id="merch">
-        <Image
-          className="sectionWatermark merchMark"
-          src={asset("/symbols/ocean-symbols-05.jpg")}
-          alt=""
-          width={520}
-          height={520}
-          aria-hidden="true"
-        />
         <div className="cinemaSectionHead">
           <p className="cinemaLabel">Merch editorial</p>
           <h2>Prendas para llevar una memoria, no solo un logo.</h2>
@@ -330,14 +261,6 @@ export default function Home() {
       </section>
 
       <footer className="cinemaFooter" id="footer">
-        <Image
-          className="footerSymbol"
-          src={asset("/symbols/ocean-symbols-01.jpg")}
-          alt=""
-          width={260}
-          height={260}
-          aria-hidden="true"
-        />
         <div>
           <p className="cinemaLabel">HIJOS DEL OCÉANO</p>
           <h2>Somos la voz del mar.</h2>
