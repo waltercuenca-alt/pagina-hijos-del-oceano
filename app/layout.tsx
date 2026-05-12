@@ -3,7 +3,8 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Hijos del Océano",
-  description: "Base viva de marca para Hijos del Océano.",
+  description:
+    "Movimiento oceánico, bitácora emocional y experiencia editorial premium conectada con el mar.",
 };
 
 export default function RootLayout({
