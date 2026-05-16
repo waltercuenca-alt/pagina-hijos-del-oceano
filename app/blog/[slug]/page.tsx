@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ArrowLeft, ArrowRight, Calendar, Clock, ExternalLink, Waves } from "lucide-react";
+import { ArrowLeft, Calendar, Clock, Waves } from "lucide-react";
 import { notFound } from "next/navigation";
 import database from "@/data/hijos-del-oceano.database.json";
 import {
@@ -7,7 +7,6 @@ import {
   formatBlogDate,
   getPostBySlug,
   getPostExcerpt,
-  getPostParagraphs,
   getReadingTime,
   publishedPosts,
 } from "@/lib/blog";
@@ -24,14 +23,56 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
   if (!post) {
     return {
-      title: "Blog | Hijos del Oceano",
+      title: "Bitácora del Océano | Hijos del Océano",
     };
   }
 
   return {
-    title: `${post.title} | Hijos del Oceano`,
+    title: `${post.title} | Hijos del Océano`,
     description: getPostExcerpt(post, 155),
   };
+}
+
+function renderInlineMarkdown(text: string) {
+  const parts = text.split(/(\*\*[^*]+\*\*)/g);
+
+  return parts.map((part, index) => {
+    if (part.startsWith("**") && part.endsWith("**")) {
+      return <strong key={`${part}-${index}`}>{part.slice(2, -2)}</strong>;
+    }
+
+    return part;
+  });
+}
+
+function renderMarkdown(markdown: string) {
+  return markdown
+    .split(/\n{2,}/)
+    .map((block) => block.trim())
+    .filter(Boolean)
+    .map((block) => {
+      if (block.startsWith("## ")) {
+        return <h2 key={block}>{renderInlineMarkdown(block.replace(/^## /, ""))}</h2>;
+      }
+
+      if (block.startsWith("### ")) {
+        return <h3 key={block}>{renderInlineMarkdown(block.replace(/^### /, ""))}</h3>;
+      }
+
+      if (block.startsWith("- ")) {
+        const items = block.split(/\r?\n/).map((item) => item.replace(/^- /, ""));
+
+        return (
+          <ul key={block}>
+            {items.map((item) => (
+              <li key={item}>{renderInlineMarkdown(item)}</li>
+            ))}
+          </ul>
+        );
+      }
+
+      return <p key={block}>{renderInlineMarkdown(block)}</p>;
+    });
 }
 
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -41,8 +82,6 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   if (!post) {
     notFound();
   }
-
-  const paragraphs = getPostParagraphs(post);
 
   return (
     <main className="blogPage articlePage">
@@ -59,7 +98,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         </a>
         <a className="backLink" href={asset("/blog/")}>
           <ArrowLeft aria-hidden="true" />
-          Volver a la bitácora
+          Volver a la Bitácora
         </a>
       </nav>
 
@@ -67,15 +106,12 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         <header className="cinematicHeader">
           <p className="sectionLabel">{post.category}</p>
           <h1>{post.title}</h1>
-          <p>{getPostExcerpt(post, 220)}</p>
+          <p>{post.description}</p>
           <div className="articleMeta">
-            <span>{post.author}</span>
-            {post.date ? (
-              <span>
-                <Calendar aria-hidden="true" />
-                {formatBlogDate(post.date)}
-              </span>
-            ) : null}
+            <span>
+              <Calendar aria-hidden="true" />
+              {formatBlogDate(post.date)}
+            </span>
             <span>
               <Clock aria-hidden="true" />
               {getReadingTime(post)}
@@ -84,41 +120,25 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         </header>
 
         <div className="cinematicCover">
-          <Image
-            src={asset(post.image)}
-            alt={post.title}
-            fill
-            priority
-            sizes="100vw"
-          />
+          <Image src={asset(post.coverImage)} alt={post.title} fill priority sizes="100vw" />
           <div className="cinematicCoverShade" />
         </div>
 
         <div className="cinematicBody">
           <aside className="articleAside">
             <Waves aria-hidden="true" />
-            <span>{post.type === "tribu" ? "Voz de la tribu" : "Nota editorial"}</span>
+            <span>Bitácora del Océano</span>
           </aside>
-          <div className="articleText">
-            {paragraphs.map((paragraph, index) => (
-              <p className={index === 0 ? "articleLeadParagraph" : undefined} key={paragraph}>
-                {paragraph}
-              </p>
-            ))}
-            {post.notionUrl ? (
-              <a href={post.notionUrl} target="_blank" rel="noreferrer">
-                Ver fuente en Notion <ExternalLink aria-hidden="true" />
-              </a>
-            ) : null}
-          </div>
+          <div className="articleText">{renderMarkdown(post.body)}</div>
         </div>
       </article>
 
       <section className="articleEndcap">
         <p>HIJOS DEL OCÉANO</p>
-        <h2>El mar no se mira de lejos. Se pertenece.</h2>
+        <h2>El océano habla. Nosotros elegimos escucharlo.</h2>
         <a href={asset("/blog/")}>
-          Leer más historias <ArrowRight aria-hidden="true" />
+          <ArrowLeft aria-hidden="true" />
+          Volver a la Bitácora
         </a>
       </section>
     </main>

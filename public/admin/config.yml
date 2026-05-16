@@ -1,0 +1,30 @@
+backend:
+  name: github
+  repo: waltercuenca-alt/pagina-hijos-del-oceano
+  branch: main
+
+site_url: https://waltercuenca-alt.github.io/pagina-hijos-del-oceano/
+display_url: https://waltercuenca-alt.github.io/pagina-hijos-del-oceano/
+logo_url: https://waltercuenca-alt.github.io/pagina-hijos-del-oceano/brand/logo-oficial.png
+locale: es
+
+media_folder: public/uploads/blog
+public_folder: /uploads/blog
+
+collections:
+  - name: blog
+    label: Bitácora del Océano
+    folder: content/blog
+    create: true
+    slug: "{{slug}}"
+    extension: md
+    format: frontmatter
+    fields:
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Slug", name: "slug", widget: "string", hint: "Ejemplo: lo-que-tiramos-vuelve" }
+      - { label: "Fecha", name: "date", widget: "datetime", format: "YYYY-MM-DD" }
+      - { label: "Categoría", name: "category", widget: "string", default: "Conciencia oceánica" }
+      - { label: "Descripción", name: "description", widget: "text" }
+      - { label: "Imagen de portada", name: "coverImage", widget: "image" }
+      - { label: "Publicado", name: "published", widget: "boolean", default: true }
+      - { label: "Contenido", name: "body", widget: "markdown" }

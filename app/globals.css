@@ -1204,6 +1204,35 @@ h1 {
   margin: 0 0 28px;
 }
 
+.articleText h2,
+.articleText h3 {
+  margin: 54px 0 18px;
+  color: #f6efe4;
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1;
+}
+
+.articleText h2 {
+  font-size: clamp(2rem, 4vw, 4rem);
+}
+
+.articleText h3 {
+  font-size: clamp(1.45rem, 3vw, 2.5rem);
+}
+
+.articleText ul {
+  margin: 0 0 30px;
+  padding-left: 22px;
+}
+
+.articleText li + li {
+  margin-top: 10px;
+}
+
+.articleText strong {
+  color: #f6efe4;
+}
+
 .articleLeadParagraph::first-letter {
   float: left;
   margin: 10px 12px 0 0;
