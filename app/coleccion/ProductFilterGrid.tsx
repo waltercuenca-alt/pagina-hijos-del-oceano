@@ -16,24 +16,18 @@ export default function ProductFilterGrid() {
   );
 
   return (
-    <section className="collectionShelf" id="productos">
-      <div className="collectionSectionHead">
-        <div>
-          <p className="cinemaLabel">Drop inicial</p>
-          <h2>SOMOS LA VOZ DEL MAR</h2>
-        </div>
-        <div className="collectionFilters" aria-label="Filtros de productos">
-          {collectionCategories.map((category) => (
-            <button
-              className={activeFilter === category ? "isActive" : undefined}
-              key={category}
-              onClick={() => setActiveFilter(category)}
-              type="button"
-            >
-              {category}
-            </button>
-          ))}
-        </div>
+    <>
+      <div className="collectionFilters" aria-label="Filtros de productos">
+        {collectionCategories.map((category) => (
+          <button
+            className={activeFilter === category ? "isActive" : undefined}
+            key={category}
+            onClick={() => setActiveFilter(category)}
+            type="button"
+          >
+            {category}
+          </button>
+        ))}
       </div>
 
       <div className="collectionGrid">
@@ -68,6 +62,6 @@ export default function ProductFilterGrid() {
         <ShoppingBag aria-hidden="true" />
         <p>Compra simple por WhatsApp. Cada producto puede crecer luego hacia stock real, tallas y nuevos drops.</p>
       </div>
-    </section>
+    </>
   );
 }

@@ -2,6 +2,7 @@ import Image from "next/image";
 import { ArrowLeft, ArrowRight, Package, Waves } from "lucide-react";
 import database from "@/data/hijos-del-oceano.database.json";
 import { asset } from "@/lib/blog";
+import CollectionPreview from "./CollectionPreview";
 import ProductFilterGrid from "./ProductFilterGrid";
 
 export const metadata = {
@@ -57,18 +58,27 @@ export default function CollectionPage() {
         </div>
       </section>
 
-      <section className="collectionManifest">
-        <p>
-          Vestir el océano también es protegerlo.
-        </p>
-        <div>
-          <Package aria-hidden="true" />
-          <span>Productos iniciales</span>
-          <strong>06</strong>
+      <section className="collectionShelf" id="productos">
+        <div className="collectionSectionHead">
+          <div>
+            <p className="cinemaLabel">Drop inicial</p>
+            <h2>SOMOS LA VOZ DEL MAR</h2>
+          </div>
         </div>
-      </section>
 
-      <ProductFilterGrid />
+        <CollectionPreview />
+
+        <section className="collectionManifest">
+          <p>Vestir el océano también es protegerlo.</p>
+          <div>
+            <Package aria-hidden="true" />
+            <span>Productos iniciales</span>
+            <strong>06</strong>
+          </div>
+        </section>
+
+        <ProductFilterGrid />
+      </section>
 
       <footer className="journalFooter collectionFooter">
         <p>HIJOS DEL OCÉANO</p>
