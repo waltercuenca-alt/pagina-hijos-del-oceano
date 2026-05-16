@@ -4,7 +4,7 @@ slug: el-oceano-no-necesita-heroes
 date: 2026-05-16
 category: Conciencia oceánica
 description: El problema no es que falten salvadores. El problema es que todavía creemos que el mar siempre podrá resistirlo todo.
-coverImage: /uploads/blog/239cd2800569dbc4f0789b1cd25b8fc5.jpg
+coverImage: /uploads/blog/0de74029657dfd0c6de4a071bf0c8f5b.jpg
 published: true
 ---
 
