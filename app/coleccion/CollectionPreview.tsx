@@ -7,15 +7,33 @@ const dropGroups = [
     items: [
       {
         name: "Fuck Plastic",
-        price: "S/ XX",
+        price: "S/ 60",
         image: "/brand/collection/polo-ballena-back.png",
         supportImage: "/brand/collection/polo-ballena-front.png",
       },
       {
-        name: "Hijos del Océano",
-        price: "S/ XX",
+        name: "Hijos del Océano Classic",
+        price: "S/ 60",
+        image: "/brand/collection/polo-classic-back.png",
+        supportImage: "/brand/collection/polo-classic-front.png",
+      },
+      {
+        name: "Hijos del Océano Ballena",
+        price: "S/ 60",
         image: "/brand/collection/polo-hijos-back.png",
         supportImage: "/brand/collection/polo-hijos-front.png",
+      },
+      {
+        name: "Hijos del Océano Lila",
+        price: "S/ 60",
+        image: "/brand/collection/polo-lila-back.png",
+        supportImage: "/brand/collection/polo-lila-front.png",
+      },
+      {
+        name: "Hijos del Océano Gold",
+        price: "S/ 60",
+        image: "/brand/collection/polo-gold-back.png",
+        supportImage: "/brand/collection/polo-gold-front.png",
       },
     ],
   },
@@ -24,12 +42,12 @@ const dropGroups = [
     items: [
       {
         name: "F*ck Plastic Tote Bag",
-        price: "S/ XX",
+        price: "S/ 30",
         image: "/brand/collection/tote-fuck-plastic.png",
       },
       {
         name: "Anti Plastic Bag Tote Bag",
-        price: "S/ XX",
+        price: "S/ 30",
         image: "/brand/collection/tote-anti-plastic.png",
       },
     ],
