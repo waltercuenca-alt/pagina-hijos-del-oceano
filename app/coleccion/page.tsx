@@ -3,7 +3,6 @@ import { ArrowLeft, ArrowRight, Package, Waves } from "lucide-react";
 import database from "@/data/hijos-del-oceano.database.json";
 import { asset } from "@/lib/blog";
 import CollectionPreview from "./CollectionPreview";
-import ProductFilterGrid from "./ProductFilterGrid";
 
 export const metadata = {
   title: "Colección | Hijos del Océano",
@@ -58,14 +57,7 @@ export default function CollectionPage() {
         </div>
       </section>
 
-      <section className="collectionShelf" id="productos">
-        <div className="collectionSectionHead">
-          <div>
-            <p className="cinemaLabel">Drop inicial</p>
-            <h2>SOMOS LA VOZ DEL MAR</h2>
-          </div>
-        </div>
-
+      <section className="collectionShelf collectionShelfFinal" id="productos">
         <CollectionPreview />
 
         <section className="collectionManifest">
@@ -76,14 +68,7 @@ export default function CollectionPage() {
             <strong>06</strong>
           </div>
         </section>
-
-        <ProductFilterGrid />
       </section>
-
-      <footer className="journalFooter collectionFooter">
-        <p>HIJOS DEL OCÉANO</p>
-        <span>Colección editorial, conciencia y estilo de vida oceánico.</span>
-      </footer>
     </main>
   );
 }

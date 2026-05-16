@@ -1,17 +1,19 @@
 import Image from "next/image";
 import { asset } from "@/lib/blog";
 
-const previewGroups = [
+const dropGroups = [
   {
     title: "Polos",
     items: [
       {
-        name: "Polo Ballena",
+        name: "Fuck Plastic",
+        price: "S/ XX",
         image: "/brand/collection/polo-ballena-back.png",
         supportImage: "/brand/collection/polo-ballena-front.png",
       },
       {
-        name: "Polo Hijos del Océano",
+        name: "Hijos del Océano",
+        price: "S/ XX",
         image: "/brand/collection/polo-hijos-back.png",
         supportImage: "/brand/collection/polo-hijos-front.png",
       },
@@ -21,11 +23,13 @@ const previewGroups = [
     title: "Accesorios",
     items: [
       {
-        name: "Tote bag F*ck Plastic",
+        name: "F*ck Plastic Tote Bag",
+        price: "S/ XX",
         image: "/brand/collection/tote-fuck-plastic.png",
       },
       {
-        name: "Tote bag Anti Plastic Bag",
+        name: "Anti Plastic Bag Tote Bag",
+        price: "S/ XX",
         image: "/brand/collection/tote-anti-plastic.png",
       },
     ],
@@ -34,16 +38,15 @@ const previewGroups = [
 
 export default function CollectionPreview() {
   return (
-    <section className="collectionPreview" aria-label="Preview de la colección">
+    <section className="collectionPreview" aria-label="Drop 01 colección">
       <div className="collectionPreviewIntro">
-        <p className="cinemaLabel">Preview de la colección</p>
-        <h3>PREVIEW DE LA COLECCIÓN</h3>
-        <span>DROP 01 — Edición inicial</span>
-        <p>Piezas creadas para quienes sienten que el mar también necesita una voz.</p>
+        <p className="cinemaLabel">Drop inicial</p>
+        <h3>SOMOS LA VOZ DEL MAR</h3>
+        <span>DROP 01</span>
       </div>
 
       <div className="previewGroups">
-        {previewGroups.map((group) => (
+        {dropGroups.map((group) => (
           <div className="previewGroup" key={group.title}>
             <div className="previewGroupLabel">
               <span>{group.title}</span>
@@ -70,8 +73,11 @@ export default function CollectionPreview() {
                     ) : null}
                   </div>
                   <div className="previewCaption">
-                    <p>{group.title}</p>
-                    <h4>{item.name}</h4>
+                    <div>
+                      <p>{group.title}</p>
+                      <h4>{item.name}</h4>
+                    </div>
+                    <strong>{item.price}</strong>
                   </div>
                 </article>
               ))}

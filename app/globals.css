@@ -2588,10 +2588,24 @@ h1 {
   text-align: right;
 }
 
+.previewCaption strong {
+  flex: 0 0 auto;
+  color: #d8b23f;
+  font-size: clamp(1rem, 1.4vw, 1.35rem);
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
 .collectionShelf .collectionManifest {
   width: 100%;
   margin: 0;
   padding: 74px 0;
+}
+
+.collectionShelfFinal {
+  padding-bottom: 0;
 }
 
 .productDetailPage {
@@ -3020,6 +3034,10 @@ h1 {
 
   .previewCaption h4 {
     text-align: left;
+  }
+
+  .previewCaption strong {
+    margin-top: 4px;
   }
 
   .previewThumb {
