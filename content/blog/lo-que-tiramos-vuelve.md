@@ -1,10 +1,10 @@
 ---
-title: "Lo que tiramos, vuelve"
-slug: "lo-que-tiramos-vuelve"
-date: "2026-05-15"
-category: "Conciencia oceánica"
-description: "El mar nunca se queda con lo que le damos. Tarde o temprano, todo vuelve."
-coverImage: "/brand/contaminacion-playa.jpg"
+title: Lo que tiramos, vuelve
+slug: lo-que-tiramos-vuelve
+date: 2026-05-15
+category: Conciencia oceánica
+description: El mar nunca se queda con lo que le damos. Tarde o temprano, todo vuelve.
+coverImage: /uploads/blog/608c0e4f0b077c3567cf99229645f5b1.jpg
 published: true
 ---
 
